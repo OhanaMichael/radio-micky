@@ -1,0 +1,15 @@
+# robots.txt לאתר רדיו מיקי טבריה
+
+User-agent: *
+Allow: /
+
+# מפת האתר
+Sitemap: https://www.radiomiki.co.il/sitemap.xml
+
+# חסימת קבצים לא רלוונטיים
+Disallow: /cgi-bin/
+Disallow: *.json$
+Disallow: *.xml$
+
+# זחילה מהירה יותר
+Crawl-delay: 0
