@@ -11,7 +11,9 @@
 <script type="text/javascript">
   // Initialize EmailJS immediately when script loads
   (function() {
+    console.log('🔧 Initializing EmailJS with key: fTjbYldj3Zug1Hm_M');
     emailjs.init('fTjbYldj3Zug1Hm_M');
+    console.log('✅ EmailJS initialized successfully');
   })();
 </script>
 
@@ -270,10 +272,10 @@
 
 <script>
 // EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'service_9h2hqor';
-const EMAILJS_TEMPLATE_ID = 'template_pf1qq7g';
+const EMAILJS_SERVICE_ID = 'Radio-Micky';
+const EMAILJS_TEMPLATE_ID = 'template_6tk6oi7'; // Eligibility template
 const EMAILJS_PUBLIC_KEY = 'fTjbYldj3Zug1Hm_M';
-const CONTACT_TEMPLATE_ID = 'contact_form'; // Template for contact form
+const CONTACT_TEMPLATE_ID = 'template_8ewwmn5'; // Contact form template
 
 // API Configuration
 const API_URL = 'https://data.gov.il/api/3/action/datastore_search';
@@ -406,7 +408,12 @@ async function submitForm(event) {
 
   try {
     // Send email via EmailJS
-    await emailjs.send(
+    console.log('📧 Attempting to send email via EmailJS');
+    console.log('Service ID:', EMAILJS_SERVICE_ID);
+    console.log('Template ID:', EMAILJS_TEMPLATE_ID);
+    console.log('Public Key:', EMAILJS_PUBLIC_KEY);
+    
+    const result = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       {
@@ -418,6 +425,8 @@ async function submitForm(event) {
       },
       EMAILJS_PUBLIC_KEY
     );
+    
+    console.log('✅ Email sent successfully:', result);
 
     // Track successful form submission
     trackEvent('form_submit', `${eligibility}_${vehicleNumber}`, 1);
@@ -433,7 +442,12 @@ async function submitForm(event) {
     document.getElementById('clearBtn').style.display = 'none';
 
   } catch (error) {
-    console.error('Email sending failed:', error);
+    console.error('❌ Email sending failed:', error);
+    console.error('Error details:', {
+      message: error.message,
+      text: error.text,
+      status: error.status
+    });
     trackEvent('form_error', vehicleNumber, 0);
     
     // Fallback to mailto if EmailJS fails
@@ -491,7 +505,11 @@ async function submitContactForm(event) {
   submitBtn.innerHTML = 'שולח...';
 
   try {
-    await emailjs.send(
+    console.log('📧 Sending contact form via EmailJS');
+    console.log('Service ID:', EMAILJS_SERVICE_ID);
+    console.log('Template ID:', CONTACT_TEMPLATE_ID);
+    
+    const result = await emailjs.send(
       EMAILJS_SERVICE_ID,
       CONTACT_TEMPLATE_ID,
       {
@@ -505,6 +523,8 @@ async function submitContactForm(event) {
       },
       EMAILJS_PUBLIC_KEY
     );
+    
+    console.log('✅ Contact form email sent:', result);
 
     if (typeof gtag !== 'undefined') {
       gtag('event', 'contact_form_submit', {
@@ -518,7 +538,12 @@ async function submitContactForm(event) {
     document.getElementById('contactFormMain').reset();
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('❌ Contact form email failed:', error);
+    console.error('Error details:', {
+      message: error.message,
+      text: error.text,
+      status: error.status
+    });
     
     if (typeof gtag !== 'undefined') {
       gtag('event', 'contact_form_error', {
