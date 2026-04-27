@@ -11,7 +11,7 @@
 <script type="text/javascript">
   // Initialize EmailJS immediately when script loads
   (function() {
-    emailjs.init('D9pHAZaGyZUcom5iV');
+    emailjs.init('fTjbYldj3Zug1Hm_M');
   })();
 </script>
 
@@ -343,9 +343,10 @@
 
 <script>
 // EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'Radio-Micky';
+const EMAILJS_SERVICE_ID = 'service_9h2hqor';
 const EMAILJS_TEMPLATE_ID = 'template_pf1qq7g';
-const EMAILJS_PUBLIC_KEY = 'D9pHAZaGyZUcom5iV';
+const EMAILJS_PUBLIC_KEY = 'fTjbYldj3Zug1Hm_M';
+const CONTACT_TEMPLATE_ID = 'contact_form'; // Template ID for contact form - update after creating in EmailJS
 
 // API Configuration
 const API_URL = 'https://data.gov.il/api/3/action/datastore_search';
@@ -545,6 +546,95 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Contact Form Submission
+async function submitContactForm(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('contactName').value;
+  const phone = document.getElementById('contactPhone').value;
+  const email = document.getElementById('contactEmail').value;
+  const vehicleType = document.getElementById('contactVehicleType').value || 'לא צוין';
+  const vehicleYear = document.getElementById('contactVehicleYear').value || 'לא צוין';
+  const message = document.getElementById('contactMessage').value;
+
+  // Disable submit button
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'שולח...';
+
+  try {
+    // Send email via EmailJS
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      CONTACT_TEMPLATE_ID,
+      {
+        customer_name: name,
+        customer_phone: phone,
+        customer_email: email,
+        vehicle_type: vehicleType,
+        vehicle_year: vehicleYear,
+        inquiry_message: message,
+        to_email: 'micky.ohana@gmail.com'
+      },
+      EMAILJS_PUBLIC_KEY
+    );
+
+    // Track successful form submission
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'contact_form_submit', {
+        'event_category': 'Contact',
+        'event_label': vehicleType,
+        'value': 1
+      });
+    }
+
+    // Show success message
+    alert('תודה רבה! הפנייה נשלחה בהצלחה. נחזור אליך בהקדם.');
+    
+    // Reset form
+    document.getElementById('contactFormMain').reset();
+
+  } catch (error) {
+    console.error('Contact form email sending failed:', error);
+    
+    // Track error
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'contact_form_error', {
+        'event_category': 'Contact',
+        'event_label': 'EmailJS Error',
+        'value': 0
+      });
+    }
+    
+    // Fallback to mailto
+    const subject = encodeURIComponent(`פנייה מאתר רדיו מיקי - ${name}`);
+    const body = encodeURIComponent(`שלום,
+
+התקבלה פנייה חדשה מטופס יצירת הקשר:
+
+שם: ${name}
+טלפון: ${phone}
+אימייל: ${email}
+סוג רכב: ${vehicleType}
+שנת ייצור: ${vehicleYear}
+
+מהות הפניה:
+${message}
+
+בברכה,
+מערכת רדיו מיקי`);
+
+    window.location.href = `mailto:micky.ohana@gmail.com?subject=${subject}&body=${body}`;
+    
+    alert('הפנייה נפתחה בתוכנת המייל שלך. אנא שלח את ההודעה.');
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
+}
 </script>
 
 <!-- ABOUT -->
@@ -863,13 +953,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <h2>צרו <span>קשר</span></h2>
 
         <div class="contact-items">
-      <a href="mailto:micky.ohana@gmail.com" class="contact-item">
-        <div class="contact-item-icon">📧</div>
-        <div class="contact-item-text">
-          <strong>דואר אלקטרוני</strong>
-          <span>micky.ohana@gmail.com</span>
-        </div>
-      </a>
           <a href="tel:046717333" class="contact-item">
             <div class="contact-item-icon">📞</div>
             <div class="contact-item-text">
@@ -885,8 +968,6 @@ document.addEventListener('DOMContentLoaded', function() {
               <span>שלחו הודעה בכל שעה</span>
             </div>
           </a>
-
-          
 
           <a href="https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94%2C%20%D7%A8%D7%97%D7%95%D7%91%20407%2C%20%D7%98%D7%91%D7%A8%D7%99%D7%94&navigate=yes" class="contact-item" target="_blank">
             <div class="contact-item-icon">📍</div>
