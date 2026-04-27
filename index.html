@@ -20,77 +20,6 @@
 
     <!-- Optimized Inline Font CSS with font-display:swap -->
     <style> @font-face{font-family:'Assistant';font-style:normal;font-weight:300;font-display:swap;src:unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/assistant/v31/iJWKBXyIfDnIV7F6jmmd8WD07oB-.woff2) format('woff2');unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}</style>
-
-<!-- Mobileye Button Pulsing Animation -->
-<style>
-.mobileye-check-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, var(--gold), #d4af37);
-  color: #000;
-  padding: 14px 24px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(201,168,76,0.4);
-  margin-top: 20px;
-  position: relative;
-}
-
-.mobileye-check-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201,168,76,0.6);
-}
-
-.pulse-dot {
-  width: 10px;
-  height: 10px;
-  background: #000;
-  border-radius: 50%;
-  position: relative;
-  animation: pulse-ring 2s infinite;
-}
-
-.pulse-dot::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  animation: pulse-wave 2s infinite;
-}
-
-@keyframes pulse-ring {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-}
-
-@keyframes pulse-wave {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* Highlight Mobileye card when scrolled into view */
-#mobileye-card.in-view {
-  border-color: rgba(201,168,76,0.6);
-  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
-}
-</style>
 </head>
 <body>
 
@@ -107,7 +36,6 @@
   <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
   <a href="#about" onclick="toggleMenu()">אודות</a>
   <a href="#services" onclick="toggleMenu()">שירותים</a>
-  <a href="#eligibility-checker" onclick="toggleMenu()">זכאות מובילאיי</a>
   <a href="#reviews" onclick="toggleMenu()">ביקורות</a>
   <a href="#contact" onclick="toggleMenu()">צור קשר</a>
   <a href="tel:046717333" style="color: var(--gold);">📞 04-6717333</a>
@@ -121,7 +49,6 @@
   <ul class="nav-links">
     <li><a href="#about">אודות</a></li>
     <li><a href="#services">שירותים</a></li>
-    <li><a href="#eligibility-checker">זכאות מובילאיי</a></li>
     <li><a href="#reviews">ביקורות</a></li>
     <li><a href="#contact">צור קשר</a></li>
     <li><a href="tel:046717333" class="nav-cta">📞 התקשרו עכשיו</a></li>
@@ -346,7 +273,7 @@
 const EMAILJS_SERVICE_ID = 'service_9h2hqor';
 const EMAILJS_TEMPLATE_ID = 'template_pf1qq7g';
 const EMAILJS_PUBLIC_KEY = 'fTjbYldj3Zug1Hm_M';
-const CONTACT_TEMPLATE_ID = 'contact_form'; // Template ID for contact form - update after creating in EmailJS
+const CONTACT_TEMPLATE_ID = 'contact_form'; // Template for contact form
 
 // API Configuration
 const API_URL = 'https://data.gov.il/api/3/action/datastore_search';
@@ -558,14 +485,12 @@ async function submitContactForm(event) {
   const vehicleYear = document.getElementById('contactVehicleYear').value || 'לא צוין';
   const message = document.getElementById('contactMessage').value;
 
-  // Disable submit button
   const submitBtn = event.target.querySelector('button[type="submit"]');
   const originalText = submitBtn.innerHTML;
   submitBtn.disabled = true;
   submitBtn.innerHTML = 'שולח...';
 
   try {
-    // Send email via EmailJS
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       CONTACT_TEMPLATE_ID,
@@ -581,7 +506,6 @@ async function submitContactForm(event) {
       EMAILJS_PUBLIC_KEY
     );
 
-    // Track successful form submission
     if (typeof gtag !== 'undefined') {
       gtag('event', 'contact_form_submit', {
         'event_category': 'Contact',
@@ -590,16 +514,12 @@ async function submitContactForm(event) {
       });
     }
 
-    // Show success message
     alert('תודה רבה! הפנייה נשלחה בהצלחה. נחזור אליך בהקדם.');
-    
-    // Reset form
     document.getElementById('contactFormMain').reset();
 
   } catch (error) {
-    console.error('Contact form email sending failed:', error);
+    console.error('Contact form error:', error);
     
-    // Track error
     if (typeof gtag !== 'undefined') {
       gtag('event', 'contact_form_error', {
         'event_category': 'Contact',
@@ -608,29 +528,11 @@ async function submitContactForm(event) {
       });
     }
     
-    // Fallback to mailto
     const subject = encodeURIComponent(`פנייה מאתר רדיו מיקי - ${name}`);
-    const body = encodeURIComponent(`שלום,
-
-התקבלה פנייה חדשה מטופס יצירת הקשר:
-
-שם: ${name}
-טלפון: ${phone}
-אימייל: ${email}
-סוג רכב: ${vehicleType}
-שנת ייצור: ${vehicleYear}
-
-מהות הפניה:
-${message}
-
-בברכה,
-מערכת רדיו מיקי`);
-
+    const body = encodeURIComponent(`שם: ${name}\nטלפון: ${phone}\nאימייל: ${email}\nסוג רכב: ${vehicleType}\nשנת ייצור: ${vehicleYear}\n\nמהות הפניה:\n${message}`);
     window.location.href = `mailto:micky.ohana@gmail.com?subject=${subject}&body=${body}`;
-    
-    alert('הפנייה נפתחה בתוכנת המייל שלך. אנא שלח את ההודעה.');
+    alert('הפנייה נפתחה בתוכנת המייל שלך.');
   } finally {
-    // Re-enable button
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
   }
@@ -704,21 +606,13 @@ ${message}
 
     <div class="services-grid">
 
-      <div class="service-card reveal" id="mobileye-card">
-        <div class="service-icon" style="padding: 12px; background: rgba(255,255,255,0.05); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;">
-          <img src="mobileye-logo.png" alt="Mobileye" style="width: 80px; height: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));" />
-        </div>
+      <div class="service-card reveal">
+        <span class="service-icon">👁️</span>
         <div class="service-brand">Mobileye</div>
         <h3>מערכת מובילאיי</h3>
         <p>
           מיקי אוחנה הוא מתקין מורשה ממשרד התחבורה להתקנת מערכות מובילאיי. המערכת מזהירה מפני התנגשות קדמית, סטייה מנתיב, הולכי רגל ורכבים בהתקרבות — ומצילה חיים. <strong style="color:var(--gold)">זכאים להחזר של עד 1,500 ₪ ממשרד התחבורה!</strong> אנחנו מטפלים בהחזר עבורכם.
         </p>
-        
-        <!-- Eligibility Check Button -->
-        <a href="#eligibility-checker" class="mobileye-check-btn">
-          <span class="pulse-dot"></span>
-          בדוק זכאות עכשיו - החזר 1,500 ₪
-        </a>
       </div>
 
       <div class="service-card reveal">
@@ -969,6 +863,8 @@ ${message}
             </div>
           </a>
 
+          
+
           <a href="https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94%2C%20%D7%A8%D7%97%D7%95%D7%91%20407%2C%20%D7%98%D7%91%D7%A8%D7%99%D7%94&navigate=yes" class="contact-item" target="_blank">
             <div class="contact-item-icon">📍</div>
             <div class="contact-item-text">
@@ -1024,104 +920,36 @@ ${message}
         <h3 style="color: var(--white); font-size: 24px; font-weight: 800; margin-bottom: 24px; text-align: center;">📧 שלחו לנו הודעה</h3>
         
         <form id="contactFormMain" onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 20px;">
-          
-          <!-- Name & Phone -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div>
               <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">שם מלא *</label>
-              <input 
-                type="text" 
-                id="contactName" 
-                required
-                placeholder="הזן שם מלא"
-                style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;"
-                onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-                onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-              />
+              <input type="text" id="contactName" required placeholder="הזן שם מלא" style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';" />
             </div>
             <div>
               <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">טלפון *</label>
-              <input 
-                type="tel" 
-                id="contactPhone" 
-                required
-                placeholder="050-1234567"
-                style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;"
-                onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-                onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-              />
+              <input type="tel" id="contactPhone" required placeholder="050-1234567" style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';" />
             </div>
           </div>
-
-          <!-- Email -->
           <div>
             <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">אימייל *</label>
-            <input 
-              type="email" 
-              id="contactEmail" 
-              required
-              placeholder="example@gmail.com"
-              style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;"
-              onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-              onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-            />
+            <input type="email" id="contactEmail" required placeholder="example@gmail.com" style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';" />
           </div>
-
-          <!-- Vehicle Type & Year -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div>
               <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">סוג רכב</label>
-              <input 
-                type="text" 
-                id="contactVehicleType" 
-                placeholder="למשל: טויוטה קורולה"
-                style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;"
-                onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-                onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-              />
+              <input type="text" id="contactVehicleType" placeholder="למשל: טויוטה קורולה" style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';" />
             </div>
             <div>
               <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">שנת ייצור</label>
-              <input 
-                type="number" 
-                id="contactVehicleYear" 
-                placeholder="2020"
-                min="1950"
-                max="2026"
-                style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;"
-                onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-                onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-              />
+              <input type="number" id="contactVehicleYear" placeholder="2020" min="1950" max="2026" style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); transition: all 0.3s; font-family: inherit;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';" />
             </div>
           </div>
-
-          <!-- Message -->
           <div>
             <label style="display: block; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-bottom: 8px;">מהות הפניה *</label>
-            <textarea 
-              id="contactMessage" 
-              required
-              rows="5"
-              placeholder="תאר/י בקצרה את מהות הפניה..."
-              style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); resize: vertical; font-family: inherit; transition: all 0.3s;"
-              onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';"
-              onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"
-            ></textarea>
+            <textarea id="contactMessage" required rows="5" placeholder="תאר/י בקצרה את מהות הפניה..." style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--white); resize: vertical; font-family: inherit; transition: all 0.3s;" onfocus="this.style.borderColor='var(--gold)'; this.style.background='rgba(0,0,0,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(0,0,0,0.3)';"></textarea>
           </div>
-
-          <!-- Submit Button -->
-          <button 
-            type="submit"
-            style="padding: 16px 32px; background: linear-gradient(135deg, var(--gold), #d4af37); color: #000; font-size: 16px; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(201,168,76,0.3); font-family: inherit;"
-            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(201,168,76,0.5)';"
-            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(201,168,76,0.3)';"
-          >
-            📨 שלח הודעה
-          </button>
-
-          <p style="font-size: 12px; color: rgba(255,255,255,0.5); text-align: center; margin-top: -8px;">
-            * שדות חובה
-          </p>
+          <button type="submit" style="padding: 16px 32px; background: linear-gradient(135deg, var(--gold), #d4af37); color: #000; font-size: 16px; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(201,168,76,0.3); font-family: inherit;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(201,168,76,0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(201,168,76,0.3)';">📨 שלח הודעה</button>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.5); text-align: center; margin-top: -8px;">* שדות חובה</p>
         </form>
       </div>
     </div>
@@ -1218,4 +1046,16 @@ ${message}
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
-      if (e
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => {
+    el.classList.add('animate');
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
