@@ -769,39 +769,34 @@
       var t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
-      setTimeout(function() { t.classList.remove('show'); }, dur || 3500);
-    }
+          /* Real API — משרד התחבורה data.gov.il */
+      var apiUrl = 'https://data.gov.il/api/3/action/datastore_search';
+      var resourceId = '83bfb278-7be1-4dab-ae2d-40125a923da1';
 
-    /* ===== ELIGIBILITY CHECK ===== */
-    var lastPlate = '';
-
-    function runCheck() {
-      var plate = document.getElementById('plate').value.replace(/[^0-9]/g,'');
-      if (plate.length < 5 || plate.length > 8) {
-        hideAll();
-        showResult('no');
-        document.getElementById('elig-no').innerHTML =
-          '⚠️ <strong>אנא הזן מספר לוחית רישוי תקין</strong> (5–8 ספרות).';
-        return;
-      }
-      lastPlate = plate;
-      hideAll();
-      document.getElementById('elig-spin').style.display = 'block';
-      document.getElementById('elig-btn').disabled = true;
-
-      /* Simulated check — replace with real API if available */
-      setTimeout(function() {
-        document.getElementById('elig-spin').style.display = 'none';
-        document.getElementById('elig-btn').disabled = false;
-
-        /* Logic: vehicles 2000–2017 eligible
-           Real check: use data.gov.il API with plate number */
-        var yr = parseInt(plate.substring(0,2));
-        var eligible = (yr >= 0 && yr <= 17) || (yr >= 80); /* rough heuristic */
-
-        showResult(eligible ? 'ok' : 'no');
-        showLeadForm(eligible);
-      }, 1400);
+      fetch(apiUrl + '?resource_id=' + resourceId + '&q=' + plate)
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+          document.getElementById('elig-spin').style.display = 'none';
+          document.getElementById('elig-btn').disabled = false;
+          if (data.success && data.result && data.result.records && data.result.records.length > 0) {
+            showResult('ok');
+            showLeadForm(true);
+          } else {
+            showResult('no');
+            showLeadForm(false);
+          }
+        })
+        .catch(function(err) {
+          console.error('API error:', err);
+          document.getElementById('elig-spin').style.display = 'none';
+          document.getElementById('elig-btn').disabled = false;
+          /* Fallback on API error */
+          showResult('no');
+          document.getElementById('elig-no').innerHTML =
+            '⚠️ <strong>שגיאה בבדיקה</strong> — אנא נסה שוב או <a href="tel:046717333" style="color:var(--red-dark);text-decoration:underline;">התקשר ישירות</a>.';
+          showLeadForm(false);
+        });
+      return; /* exit — async continues above */
     }
 
     function hideAll() {
