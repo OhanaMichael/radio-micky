@@ -22,6 +22,77 @@
 
     <!-- Optimized Inline Font CSS with font-display:swap -->
     <style> @font-face{font-family:'Assistant';font-style:normal;font-weight:300;font-display:swap;src:unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/assistant/v31/iJWKBXyIfDnIV7F6jmmd8WD07oB-.woff2) format('woff2');unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}</style>
+
+<!-- Mobileye Button Pulsing Animation -->
+<style>
+.mobileye-check-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold), #d4af37);
+  color: #000;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.4);
+  margin-top: 20px;
+  position: relative;
+}
+
+.mobileye-check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,168,76,0.6);
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse-ring 2s infinite;
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  animation: pulse-wave 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Highlight Mobileye card when scrolled into view */
+#mobileye-card.in-view {
+  border-color: rgba(201,168,76,0.6);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+}
+</style>
 </head>
 <body>
 
@@ -631,13 +702,21 @@ async function submitContactForm(event) {
 
     <div class="services-grid">
 
-      <div class="service-card reveal">
-        <span class="service-icon">👁️</span>
+      <div class="service-card reveal" id="mobileye-card">
+        <div class="service-icon" style="padding: 12px; background: rgba(255,255,255,0.05); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;">
+          <img src="mobileye-logo.png" alt="Mobileye" style="width: 80px; height: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));" />
+        </div>
         <div class="service-brand">Mobileye</div>
         <h3>מערכת מובילאיי</h3>
         <p>
           מיקי אוחנה הוא מתקין מורשה ממשרד התחבורה להתקנת מערכות מובילאיי. המערכת מזהירה מפני התנגשות קדמית, סטייה מנתיב, הולכי רגל ורכבים בהתקרבות — ומצילה חיים. <strong style="color:var(--gold)">זכאים להחזר של עד 1,500 ₪ ממשרד התחבורה!</strong> אנחנו מטפלים בהחזר עבורכם.
         </p>
+        
+        <!-- Eligibility Check Button -->
+        <a href="#eligibility-checker" class="mobileye-check-btn">
+          <span class="pulse-dot"></span>
+          בדוק זכאות עכשיו - החזר 1,500 ₪
+        </a>
       </div>
 
       <div class="service-card reveal">
