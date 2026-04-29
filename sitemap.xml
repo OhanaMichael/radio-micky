@@ -1,52 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Homepage -->
   <url>
-    <loc>https://radiomiki.co.il/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://www.radio-micky.co.il/</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  
-  <!-- About Section -->
-  <url>
-    <loc>https://radiomiki.co.il/#about</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Services Section -->
-  <url>
-    <loc>https://radiomiki.co.il/#services</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Mobileye Eligibility Checker -->
-  <url>
-    <loc>https://radiomiki.co.il/#eligibility-checker</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <!-- Reviews Section -->
-  <url>
-    <loc>https://radiomiki.co.il/#reviews</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Contact Section -->
-  <url>
-    <loc>https://radiomiki.co.il/#contact</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
 </urlset>
