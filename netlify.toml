@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "http://radio-micky.co.il/*"
+    to = "https://www.radio-micky.co.il/:splat"
+      status = 301
+        force = true
+
+        [[redirects]]
+          from = "http://www.radio-micky.co.il/*"
+            to = "https://www.radio-micky.co.il/:splat"
+              status = 301
+                force = true
+
+                [[redirects]]
+                  from = "https://radio-micky.co.il/*"
+                    to = "https://www.radio-micky.co.il/:splat"
+                      status = 301
+                        force = true
