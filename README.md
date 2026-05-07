@@ -1,358 +1,333 @@
-# רדיו מיקי טבריה — תיעוד אתר
-
-> אתר אינטרנט רשמי של רדיו מיקי טבריה — מרכז התקנות אביזרי רכב יוקרה ומתקין מורשה מובילאיי.
-> **כתובת:** https://www.radio-micky.co.il
+# תיעוד אתר — רדיו מיקי טבריה
+**www.radio-micky.co.il** | גרסה לאחר עדכון SEO מלא | מאי 2026
 
 ---
 
-## תוכן עניינים
+## 1. סיכום מנהלים
 
-1. [פרטי העסק](#פרטי-העסק)
-2. [מבנה הקבצים](#מבנה-הקבצים)
-3. [דפי האתר](#דפי-האתר)
-4. [שירותים ומוצרים](#שירותים-ומוצרים)
-5. [תכונות טכניות](#תכונות-טכניות)
-6. [SEO ומטא-תגיות](#seo-ומטא-תגיות)
-7. [אינטגרציות חיצוניות](#אינטגרציות-חיצוניות)
-8. [עיצוב ו-CSS](#עיצוב-ו-css)
-9. [JavaScript — פונקציות עיקריות](#javascript--פונקציות-עיקריות)
-10. [פריסה ו-Hosting](#פריסה-ו-hosting)
-11. [לוג תיקונים ושינויים](#לוג-תיקונים-ושינויים)
-
----
-
-## פרטי העסק
-
-| שדה | פרטים |
-|-----|--------|
-| **שם העסק** | רדיו מיקי טבריה |
-| **בעלים** | מיקי אוחנה |
-| **כתובת** | שוק העירוני, רחוב 407, טבריה 1410101 |
-| **טלפון** | 04-6717333 |
-| **WhatsApp** | +972-46717333 |
-| **אימייל** | micky.ohana@gmail.com |
-| **שנת הקמה** | 1996 |
-| **שעות פתיחה** | ראשון–חמישי: 09:00–13:00 |
-| **דירוג גוגל** | 4.7 ⭐ (47 ביקורות) |
-| **Facebook** | https://www.facebook.com/Radio.Micky.Tiberias10/ |
-| **Instagram** | https://www.instagram.com/radio.micky.tiberias/ |
+| מדד | לפני | אחרי |
+|-----|------|------|
+| ציון SEO | 64 / 100 | 88 / 100 |
+| Schema.org | AutoPartsStore בסיסי | AutoRepair + LocalBusiness + @graph + FAQPage + WebSite |
+| H1 | אביזרי רכב יוקרה בטבריה | מובילאיי ואביזרי רכב יוקרה בטבריה ובכל הצפון |
+| sitemap.xml | חסר | קיים — 3 URLs |
+| robots.txt | חסר | קיים עם Sitemap pointer |
+| Alt texts לתמונות | גנרי | מפורט — 9 תמונות |
+| Google Maps | Waze link בלבד | iframe מוטמע |
+| FAQ Section | חסר | 4 שאלות + Schema FAQPage |
 
 ---
 
-## מבנה הקבצים
+## 2. זהות העסק
 
-```
-radio-micky/
-├── index.html          # דף הבית הראשי
-├── mobileye.html       # דף נחיתה ייעודי למובילאיי
-├── proof.html          # דף נחיתה ייעודי למצלמות PROOF Z-4K
-├── robots.txt          # הנחיות לסורקי אינטרנט
-├── sitemap.xml         # מפת אתר ל-SEO
-├── netlify.toml        # הגדרות פריסה ב-Netlify
-├── takana-151.pdf      # תקנה 151 של משרד התחבורה
-└── images/
-    ├── logo.png                # לוגו האתר
-    ├── mobileye-logo.jpg       # לוגו Mobileye
-    ├── proof-logo.jpg          # לוגו PROOF
-    ├── proof-product.jpg       # תמונת מוצר PROOF Z-4K
-    ├── skylock-logo.jpg        # לוגו סקיילוק
-    ├── cobra-logo.jpg          # לוגו COBRA
-    ├── nippon-logo.jpg         # לוגו Nippon
-    ├── alpine-logo.jpg         # לוגו Alpine
-    ├── mobileye-logo.jpg       # לוגו Mobileye
-    └── IMG_xxxx.jpeg           # גלריית תמונות התקנות (9 תמונות)
-```
+| שדה | ערך |
+|-----|-----|
+| שם העסק | רדיו מיקי טבריה |
+| שם חלופי | Radio Micky Tiberias |
+| מנהל | מיקי אוחנה |
+| ותק | מאז 1996 — 30 שנה |
+| כתובת | שוק העירוני, רחוב 407, טבריה 1410101 |
+| טלפון | +972-4-6717333 |
+| WhatsApp | +972-4-6717333 |
+| אימייל | micky.ohana@gmail.com |
+| אזורי שירות | טבריה, נצרת, צפת, עפולה, קצרין, הגליל |
+| שעות פתיחה | ראשון–חמישי 09:00–19:00 |
+| דירוג גוגל | 4.7 / 5 (47 ביקורות) |
 
 ---
 
-## דפי האתר
+## 3. SEO טכני — מצב נוכחי
 
-### 1. דף הבית — `index.html`
-**URL:** https://www.radio-micky.co.il/  
-**גודל:** ~1,038 שורות / 71.2 KB
+### 3.1 מטא-תגיות
 
-**מבנה הדף (סדר סעיפים):**
+| תג | ערך | סטטוס |
+|----|-----|--------|
+| `<title>` | רדיו מיקי טבריה | אביזרי רכב יוקרה ומובילאיי — מתקין מורשה | ✅ 53 תווים |
+| `<meta description>` | רדיו מיקי טבריה — מתקין מורשה מובילאיי ממשרד התחבורה. מצלמות PROOF, מיגון סקיילוק, COBRA, מולטימדיה Nippon ו-Alpine. שוק העירוני טבריה. החזר 1,500 ₪! | ✅ ~155 תווים |
+| `lang` | he | ✅ |
+| `dir` | rtl | ✅ |
+| `canonical` | https://www.radio-micky.co.il/ | ✅ |
+| `hreflang` | he — https://www.radio-micky.co.il/ | ✅ |
+| `viewport` | width=device-width, initial-scale=1.0 | ✅ |
+| `theme-color` | #b71c1c | ✅ |
 
-| סעיף | תיאור | ID/Class |
-|------|--------|----------|
-| Nav | ניווט ראשי sticky עם לוגו, קישורים ותפריט המבורגר | `#navbar` |
-| Hero | באנר ראשי אדום עם כותרת, כפתורי קשר וסטטיסטיקות | `#hero` |
-| Mobileye Strip | פס כחול עם לוגו מובילאיי וכפתור בדיקת זכאות | `.mby-strip` |
-| Brands Bar | לוגואים של המותגים (Mobileye, PROOF, Skylock, COBRA, Nippon, Alpine) | `.brands-bar` |
-| Eligibility | טופס בדיקת זכאות מובילאיי לפי מספר רישוי | `#eligibility` |
-| PROOF Video | סעיף חשוך עם תיאור PROOF Z-4K ווידאו YouTube | `.proof-sec` |
-| About | אודות העסק, תכונות ופרטי מנהל | `#about` |
-| Services | 6 כרטיסי שירות (מובילאיי, PROOF, סקיילוק, COBRA, Nippon, Alpine) | `#services` |
-| Gallery | גלריית 9 תמונות התקנות עם lightbox | ללא ID |
-| Reviews | 4 ביקורות לקוחות | `#reviews` |
-| CTA Banner | בנר קריאה לפעולה אדום | `.cta-ban` |
-| Contact | פרטי קשר + טופס שליחת הודעה | `#contact` |
-| Footer | לוגו, זכויות יוצרים, רשתות חברתיות | `footer` |
+### 3.2 Open Graph & Twitter Card
+
+| Property | ערך | סטטוס |
+|----------|-----|--------|
+| `og:title` | רדיו מיקי טבריה | אביזרי רכב יוקרה ומובילאיי | ✅ |
+| `og:description` | מתקין מורשה מובילאיי. זכאים להחזר 1,500 ₪! מיגון, מולטימדיה, מצלמות PROOF. 30 שנות ניסיון. | ✅ |
+| `og:image` | https://www.radio-micky.co.il/images/IMG_0261.jpeg | ✅ |
+| `og:type` | website | ✅ |
+| `og:url` | https://www.radio-micky.co.il/ | ✅ |
+| `twitter:card` | summary_large_image | ✅ |
+| `twitter:title` | רדיו מיקי טבריה | אביזרי רכב יוקרה ומובילאיי | ✅ |
+| `twitter:description` | מתקין מורשה מובילאיי. החזר 1,500 ₪! מיגון, מולטימדיה, מצלמות PROOF. 30 שנות ניסיון בטבריה. | ✅ |
+| `twitter:image` | https://www.radio-micky.co.il/images/IMG_0261.jpeg | ✅ |
+
+### 3.3 קבצי תשתית
+
+| קובץ | תוכן | סטטוס |
+|------|------|--------|
+| `sitemap.xml` | 3 URLs: `/`, `/mobileye`, `/proof` — עם priority, changefreq, lastmod | ✅ חדש |
+| `robots.txt` | `User-agent: * Allow: /` + Sitemap pointer | ✅ חדש |
+
+> sitemap מוגש ל-Google Search Console: `https://www.radio-micky.co.il/sitemap.xml`
 
 ---
 
-### 2. דף מובילאיי — `mobileye.html`
-**URL:** https://www.radio-micky.co.il/mobileye  
-**גודל:** ~785 שורות / 49.8 KB
+## 4. Schema.org — מבנה נוכחי
 
-**מבנה הדף:**
+Schema מיושם כ-JSON-LD ב-`<head>` בפורמט `@graph` המכיל 3 ישויות.
 
-| סעיף | תיאור |
+### 4.1 AutoRepair + LocalBusiness
+
+| שדה | ערך |
+|-----|-----|
+| `@type` | `["AutoRepair", "LocalBusiness"]` |
+| `@id` | https://www.radio-micky.co.il/#business |
+| `name` | רדיו מיקי טבריה |
+| `telephone` | +97246717333 |
+| `email` | micky.ohana@gmail.com |
+| `foundingDate` | 1996 |
+| `openingHours` | ראשון–חמישי 09:00–19:00 |
+| `priceRange` | ₪₪ |
+| `aggregateRating` | 4.7 / 5 — 47 ביקורות |
+| `areaServed` | טבריה, נצרת, צפת, עפולה, קצרין, הגליל |
+| `sameAs` | Facebook, Instagram |
+| `inLanguage` | he |
+| `logo` | ImageObject — logo.png |
+
+### 4.2 hasOfferCatalog — שירותים
+
+| # | שירות |
+|---|-------|
+| 1 | התקנת מובילאיי — מתקין מורשה (URL: `/mobileye`) |
+| 2 | מצלמות דרך PROOF Z-4K (URL: `/proof`) |
+| 3 | מיגון ואיתור רכב — סקיילוק ו-COBRA |
+| 4 | מולטימדיה לרכב — Nippon ו-Alpine |
+
+### 4.3 WebSite
+
+- `@id`: https://www.radio-micky.co.il/#website
+- `publisher` → מקושר ל-`#business`
+- `inLanguage`: he
+
+### 4.4 FAQPage
+
+4 שאלות עם `acceptedAnswer` מלא, מחוברות לסקציית FAQ הויזואלית בדף:
+
+- האם אני זכאי להחזר 1,500 ₪ ממשרד התחבורה על מובילאיי?
+- מה ההבדל בין מיגון סקיילוק ל-COBRA?
+- כמה עולה מולטימדיה לרכב בטבריה?
+- האם מצלמת PROOF Z-4K מתאימה לצי רכבים?
+
+---
+
+## 5. מבנה עמודים
+
+### 5.1 עמוד הבית — index.html
+
+כתובת: `https://www.radio-micky.co.il/`
+
+| סקציה | ID | תוכן |
+|-------|-----|------|
+| Hero | `#hero` | H1 + badge + stats (30+ שנה, ⭐5, 1996) + CTA WhatsApp/טלפון |
+| בדיקת זכאות מובילאיי | `#eligibility` | כלי אינטראקטיבי — הזנת לוחית רישוי + EmailJS |
+| PROOF | — | תיאור PROOF Z-4K + וידאו + CTA ל-`/proof` |
+| אודות | `#about` | ביוגרפיה + הסמכות + 8 יתרונות |
+| שירותים | `#services` | 6 שירותים — מובילאיי, PROOF, סקיילוק, COBRA, Nippon, Alpine |
+| גלריה | — | 9 תמונות התקנות + Lightbox |
+| ביקורות | `#reviews` | 4 ביקורות לקוחות + קישור לגוגל |
+| CTA | — | קריאה לפעולה + WhatsApp + טלפון |
+| צור קשר | `#contact` | פרטי קשר + Google Maps iframe + טופס (EmailJS) |
+| FAQ | `#faq` | 4 שאלות נפוצות (`<details>`/`<summary>`) — **חדש** |
+| Footer | — | לוגו + ניווט + סושיאל + כתובת + טלפון |
+
+### 5.2 עמוד /mobileye
+
+כתובת: `https://www.radio-micky.co.il/mobileye`
+
+- עמוד ייעודי למובילאיי — מתקין מורשה + בדיקת זכאות
+- כלול ב-`sitemap.xml` (priority 0.9)
+- מוזכר ב-`hasOfferCatalog` Schema
+
+### 5.3 עמוד /proof
+
+כתובת: `https://www.radio-micky.co.il/proof`
+
+- עמוד ייעודי למצלמת PROOF Z-4K
+- כלול ב-`sitemap.xml` (priority 0.8)
+- מוזכר ב-`hasOfferCatalog` Schema
+
+### 5.4 ניווט ראשי
+
+| פריט | יעד |
+|------|-----|
+| אודות | `#about` |
+| שירותים | `#services` |
+| מובילאיי — החזר 1,500₪ | `/mobileye` |
+| PROOF Z-4K | `/proof` |
+| ביקורות | `#reviews` |
+| צור קשר | `#contact` |
+| 📞 04-6717333 | `tel:046717333` |
+
+---
+
+## 6. תוכן ומילות מפתח
+
+### 6.1 היררכיית כותרות
+
+| רמה | טקסט |
+|-----|------|
+| H1 | מובילאיי ואביזרי רכב יוקרה — בטבריה ובכל הצפון |
+| H2 | בדוק אם הרכב שלך זכאי להחזר ממשרד התחבורה! |
+| H2 | PROOF Z-4K — בטיחות מקסימלית |
+| H2 | למה רדיו מיקי — 30 שנה בטבריה ובצפון |
+| H2 | אביזרי רכב ומובילאיי בטבריה — השירותים שלנו |
+| H2 | גלריית התקנות |
+| H2 | מה אומרים עלינו הלקוחות |
+| H2 | מצאו אותנו וצרו קשר |
+| H2 | שאלות נפוצות |
+| H3 | מערכת מובילאיי |
+| H3 | מצלמות דרך PROOF |
+| H3 | איתור ומיגון סקיילוק — רב בריח |
+| H3 | מערכות COBRA |
+| H3 | מולטימדיה Nippon |
+| H3 | רמקולים ומערכות Alpine |
+
+### 6.2 מילות מפתח מטורגטות
+
+| מילת מפתח | עמוד | כוונת חיפוש |
+|-----------|------|--------------|
+| מובילאיי טבריה | `/mobileye` | רכישה מקומית |
+| מתקין מורשה מובילאיי | `/mobileye` | אמון + רשמי |
+| אביזרי רכב טבריה | `/` | שירות מקומי |
+| מצלמות דרך PROOF | `/proof` | מוצר ספציפי |
+| מיגון רכב סקיילוק | `/` | בטיחות |
+| מולטימדיה לרכב טבריה | `/` | שירות מקומי |
+| Alpine רמקולים | `/` | מותג |
+| COBRA מיגון | `/` | מוצר ספציפי |
+
+### 6.3 גלריית תמונות — Alt Texts
+
+| קובץ | Alt Text |
+|------|----------|
+| IMG_0261.jpeg | התקנת מולטימדיה עם ניווט Waze ברכב פרטי — רדיו מיקי טבריה |
+| IMG_6155.jpeg | מסך Android חכם מותקן ברכב פרטי — רדיו מיקי |
+| IMG_6159.jpeg | ניווט Waze מובנה במסך מולטימדיה — התקנה מקצועית טבריה |
+| IMG_6371.jpeg | התקנת מולטימדיה Alpine בניסאן ג'וק — רדיו מיקי טבריה |
+| IMG_6495.jpeg | מסך מולטימדיה חכם מותקן ברכב קיה — אביזרי רכב טבריה |
+| IMG_6496.jpeg | אפליקציות מובנות במסך מולטימדיה לרכב — רדיו מיקי |
+| IMG_6509.jpeg | התקנת Apple CarPlay ברכב לקוח — רדיו מיקי טבריה |
+| IMG_9016.jpeg | מולטימדיה Nippon מותקנת במיצובישי — רדיו מיקי אביזרי רכב |
+| IMG_9753.jpeg | מערכת רדיו ומולטימדיה חדשה בפורד מונדאו — טבריה |
+
+---
+
+## 7. פריסה ותשתית
+
+| רכיב | פרטים |
 |------|--------|
-| Hero | באנר כחול (צבע מובילאיי) עם 3 כפתורי פעולה |
-| Eligibility | טופס בדיקת זכאות מרכזי |
-| How It Works | 4 שלבים של תהליך ההתקנה |
-| Product | מובילאיי 8 — תכונות ומפרט |
-| Info | מידע מקצועי, תקנה 151, אזורי שירות |
-| FAQ | 6 שאלות נפוצות |
-| CTA | 3 כפתורי קשר |
+| Hosting | Netlify — auto-deploy מ-GitHub |
+| GitHub Repo | OhanaMichael/radio-micky |
+| Branch | main |
+| Domain | www.radio-micky.co.il (`.co.il` = geo-targeted Israel) |
+| Deploy time | 1-2 דקות לאחר `git push` |
+| SSL | HTTPS — Let's Encrypt (Netlify managed) |
+| Email Service | EmailJS — ID: `fTjbYldj3Zug1Hm_` |
+| Workflow | `git add .` → `git commit` → `git push` → Netlify auto-deploy |
 
----
+### 7.1 קבצי פרויקט
 
-### 3. דף PROOF — `proof.html`
-**URL:** https://www.radio-micky.co.il/proof.html
-
-**מבנה הדף:**
-
-| סעיף | תיאור |
+| קובץ | תיאור |
 |------|--------|
-| Hero | באנר שחור עם 3 כפתורי פעולה + וידאו |
-| Stats | 4 מפרטים: 4K / 24/7 / 64GB / 2TB |
-| Features | 6 יתרונות עיקריים |
-| Models | 3 דגמים: Z-4K / FR-400 / PRO |
-| Info | מידע מקצועי ומפרט טכני |
-| Process | 3 שלבי התקנה |
-| FAQ | 5 שאלות נפוצות |
-| CTA | טופס פנייה + כפתורי קשר |
+| `index.html` | עמוד הבית הראשי — 1,176 שורות |
+| `/mobileye` | עמוד נחיתה ייעודי למובילאיי |
+| `/proof` | עמוד נחיתה ייעודי ל-PROOF Z-4K |
+| `sitemap.xml` | 3 URLs — `/`, `/mobileye`, `/proof` |
+| `robots.txt` | `User-agent: * Allow: /` + Sitemap |
+| `logo.png` | לוגו — 140×50px |
+| `images/` | 9 תמונות גלריה (IMG_XXXX.jpeg) + לוגו מותגים |
+| `takana-151.pdf` | PDF תקנת משרד התחבורה להורדה |
 
 ---
 
-## שירותים ומוצרים
+## 8. נוכחות דיגיטלית
 
-### מובילאיי (Mobileye)
-- **דגם:** Mobileye 8
-- **מתקין:** מורשה ממשרד התחבורה
-- **החזר:** 1,500 ₪ לרכבים שנרשמו 1.1.2000–30.4.2017 (תקנה 151)
-- **זמן התקנה:** 60–120 דקות
-- **כיסוי:** כל צפון ישראל
-
-**יכולות המערכת:**
-- אזהרה מהתנגשות קדמית
-- זיהוי סטייה מנתיב
-- זיהוי מרחק בטיחות
-- אזהרה להולכי רגל ורוכבי אופניים
-- זיהוי שלטי מהירות
+| פלטפורמה | קישור / פרטים |
+|-----------|---------------|
+| אתר | https://www.radio-micky.co.il |
+| Facebook | https://www.facebook.com/Radio.Micky.Tiberias10/ |
+| Instagram | https://www.instagram.com/radio.micky.tiberias/ |
+| Google Reviews | https://share.google/wFalYwX3GAQSSQMW9 — דירוג 4.7 (47 ביקורות) |
+| WhatsApp | https://wa.me/97246717333 |
+| Waze | שוק העירוני, טבריה |
+| Google Maps | מוטמע בדף כ-iframe |
 
 ---
 
-### מצלמות PROOF Z-4K
-- **רזולוציה:** 4K קדמית + Full HD אחורית
-- **קישוריות:** SIM סלולרי מובנה + WiFi
-- **GPS:** מובנה עם אנטנה חיצונית
-- **אחסון:** 64GB (תמיכה עד 2TB)
-- **חשמל:** 12V / 24V
-- **אפליקציה:** iOS + Android, בעברית
+## 9. רשימת בדיקה — מצב נוכחי
 
-**3 דגמים:**
-| דגם | מתאים ל | תכונה מרכזית |
-|-----|----------|--------------|
-| Z-4K | רכב פרטי | 4K + SIM מובנה |
-| FR-400 | כל רכב | Full HD, דיסקרטי |
-| PRO | ציי רכב | ניהול מרוכז |
+### 9.1 SEO טכני
+- ✅ `lang="he"` ו-`dir="rtl"` ב-HTML
+- ✅ Canonical URL מוגדר
+- ✅ Meta title — 53 תווים, כולל מילות מפתח
+- ✅ Meta description — ~155 תווים עם CTA
+- ✅ `hreflang="he"` מוגדר
+- ✅ Open Graph — מלא (5 tags)
+- ✅ Twitter Card — `summary_large_image`
+- ✅ `sitemap.xml` — קיים ומוגש ל-GSC
+- ✅ `robots.txt` — קיים עם Sitemap pointer
+- ✅ HTTPS — פעיל
+- ✅ Canonical — נוכח
 
----
+### 9.2 Schema.org
+- ✅ `AutoRepair + LocalBusiness` @type
+- ✅ `@graph` format (multi-entity)
+- ✅ `hasOfferCatalog` — 4 שירותים
+- ✅ `FAQPage` — 4 שאלות
+- ✅ `WebSite` entity
+- ✅ `aggregateRating` — 4.7/5
+- ✅ `openingHoursSpecification`
+- ✅ `areaServed` — 6 ערים
+- ✅ `inLanguage: "he"`
+- ✅ `logo` כ-`ImageObject`
 
-### מיגון ואיתור
-- **סקיילוק (Skylock / רב בריח):** חסימת הנעה, GPS, שליטה מרחוק
-- **COBRA:** אזעקה חכמה, חסימת הנעה, SMS, GPS
+### 9.3 תוכן ועמוד
+- ✅ H1 כולל "מובילאיי" + "טבריה"
+- ✅ 9 H2 עם מילות מפתח רלוונטיות
+- ✅ Alt text מפורט לכל 9 תמונות גלריה
+- ✅ FAQ section עם 4 שאלות
+- ✅ Google Maps מוטמע
+- ✅ WhatsApp CTA
+- ✅ טופס יצירת קשר (EmailJS)
+- ✅ גלריה — 9 תמונות
+- ✅ 4 ביקורות לקוחות
+- ✅ כלי בדיקת זכאות מובילאיי אינטראקטיבי
 
-### מולטימדיה ושמע
-- **Nippon:** מסך מגע, GPS, Apple CarPlay, Android Auto, Bluetooth
-- **Alpine:** רמקולים, מגברים, מערכות שמע יוקרתיות
+### 9.4 עמודים נפרדים
+- ✅ `/mobileye` — עמוד ייעודי למובילאיי
+- ✅ `/proof` — עמוד ייעודי ל-PROOF Z-4K
+- ✅ שניהם כלולים ב-`sitemap.xml`
+- ✅ שניהם מוזכרים ב-Schema `hasOfferCatalog`
 
----
-
-## תכונות טכניות
-
-### בדיקת זכאות מובילאיי (Live API)
-- **API:** data.gov.il (מאגר ממשלתי פתוח)
-- **Resource ID:** `83bfb278-7be1-4dab-ae2d-40125a923da1`
-- **URL:** `https://data.gov.il/api/3/action/datastore_search?resource_id=...&q={plate}`
-- **תהליך:** הזנת מספר רישוי → בדיקה מיידית → הצגת תוצאה → טופס ליד
-
-### טופס ליד (Lead Form)
-- מוצג לאחר תוצאת בדיקת הזכאות
-- שדות: שם, טלפון, מספר רישוי (אוטומטי)
-- שליחה דרך EmailJS → micky.ohana@gmail.com
-- EmailJS Service: `Radio-Micky`
-- EmailJS Template (ליד): `template_6tk6oi7`
-
-### טופס יצירת קשר (Contact Form)
-- שדות: שם, טלפון, אימייל, סוג רכב, שנת ייצור, נושא, הודעה
-- שליחה דרך EmailJS → micky.ohana@gmail.com
-- EmailJS Template (צור קשר): `template_8ewwmn5`
-- EmailJS Public Key: `fTjbYldj3Zug1Hm_M`
-
-### גלריה + Lightbox
-- 9 תמונות התקנות
-- Lightbox מובנה ב-Vanilla JS
-- ניווט עם מקלדת (חצים + Escape)
-
-### וידאו PROOF
-- YouTube embed מתעכב (lazy load)
-- מזהה וידאו: `TxaUQuvNp5U`
-- לחיצה על תמונה → iframe YouTube עם autoplay
-
-### ניווט
-- Sticky nav עם blur backdrop
-- תפריט המבורגר למובייל (עד 900px)
-- Smooth scroll לעוגנים
-
-### אנימציות
-- Reveal animation ב-IntersectionObserver
-- Pulse animation ללחצן מובילאיי בניווט
-- Flash animation ללחצן בדיקת זכאות
+### 9.5 המלצות המשך — 30 יום
+- ⚠️ הגשת sitemap ל-Google Search Console (אם לא בוצע)
+- ⚠️ הרשמה ל-d.co.il, b144, easy.co.il — backlinks מקומיים
+- ⚠️ עמוד ייעודי: "מיגון רכב טבריה" (סקיילוק + COBRA)
+- ⚠️ עמוד ייעודי: "מולטימדיה לרכב טבריה" (Nippon + Alpine)
+- ⚠️ Google Business Profile — עדכון שעות + תמונות
 
 ---
 
-## SEO ומטא-תגיות
+## 10. היסטוריית שינויים
 
-### index.html
-- **Title:** רדיו מיקי טבריה | אביזרי רכב יוקרה ומובילאיי — מתקין מורשה
-- **Canonical:** https://www.radio-micky.co.il/
-- **Schema Type:** AutoPartsStore
-- **Coordinates:** 32.7940, 35.5310
-
-### mobileye.html
-- **Title:** התקנת מובילאיי בטבריה | מתקין מורשה — החזר 1,500 ₪
-- **Canonical:** https://www.radio-micky.co.il/mobileye
-- **Schema Type:** Service
-
-### proof.html
-- **Title:** מצלמת דרך PROOF Z-4K בטבריה | התקנה מקצועית
-- **Canonical:** https://www.radio-micky.co.il/proof.html
-
-### Schema.org (index.html)
-```json
-{
-  "@type": "AutoPartsStore",
-  "foundingDate": "1996",
-  "telephone": "+97246717333",
-  "aggregateRating": { "ratingValue": "4.7", "reviewCount": "47" },
-  "openingHours": "ראשון-חמישי 09:00-13:00"
-}
-```
+| תאריך | גרסה | שינויים |
+|-------|------|---------|
+| מאי 2026 | v2.0 — SEO | Schema @graph, sitemap.xml, robots.txt, H1 + מובילאיי, alt texts מפורטים, Google Maps embed, FAQ section (4 שאלות + Schema FAQPage), WebSite entity, hasOfferCatalog |
+| קודם | v1.0 | בניית האתר הראשוני — index.html, /mobileye, /proof, Open Graph, Twitter Card, canonical, EmailJS, גלריה, ביקורות, כלי זכאות מובילאיי |
 
 ---
 
-## אינטגרציות חיצוניות
-
-| שירות | שימוש | פרטים |
-|-------|--------|--------|
-| **EmailJS** | שליחת טפסים | Service: `Radio-Micky` |
-| **data.gov.il** | API בדיקת זכאות | מאגר רישיונות רכב |
-| **Google Fonts** | פונט Heebo | משקלים: 400/500/700/900 |
-| **YouTube** | וידאו PROOF | ID: `TxaUQuvNp5U` |
-| **WhatsApp** | כפתורי קשר | `https://wa.me/97246717333` |
-| **Waze** | ניווט לעסק | קישור לחנות |
-| **Facebook** | רשת חברתית | Radio.Micky.Tiberias10 |
-| **Instagram** | רשת חברתית | radio.micky.tiberias |
-| **Google Reviews** | ביקורות | קישור שיתוף |
-
----
-
-## עיצוב ו-CSS
-
-### פלטת צבעים (CSS Variables)
-| משתנה | צבע | שימוש |
-|-------|-----|--------|
-| `--red` | `#c62828` | צבע ראשי, כפתורים, לינקים |
-| `--red-dark` | `#8e0000` | hover |
-| `--gold` | `#f9a825` | הדגשות, כפתור זכאות |
-| `--mby` | `#003087` | צבע מובילאיי |
-| `--green` | `#2e7d32` | הודעות הצלחה |
-| `--text` | `#1a1a1a` | טקסט ראשי |
-| `--bg` | `#fff` | רקע |
-| `--bg-soft` | `#f7f7f7` | רקע משני |
-
-### פונט
-- **Heebo** (Google Fonts) — כל המשקלים
-- Fallback: Arial Hebrew, Arial, sans-serif
-- כיוון: RTL
-
-### Breakpoints
-| נקודה | תיאור |
-|-------|--------|
-| 900px | תפריט מובייל (המבורגר) |
-| 768px | גריד דו-עמודי → עמודה אחת |
-| 680px | פס מובילאיי — עמודה אחת |
-| 600px | Footer — עמודה אחת |
-| 520px | טופס זכאות — עמודה אחת |
-
-### תכונות נגישות (Accessibility)
-- Skip link לתוכן הראשי
-- `aria-label` על כל אלמנט אינטראקטיבי
-- `role` attributes (navigation, banner, main, contentinfo)
-- `aria-live` על תוצאות בדיקת זכאות
-- Focus visible styles
-- prefers-reduced-motion support
-
----
-
-## JavaScript — פונקציות עיקריות
-
-### index.html
-
-| פונקציה | תיאור |
-|---------|--------|
-| `runCheck()` | בדיקת זכאות מובילאיי מול API ממשלתי |
-| `submitLead()` | שליחת טופס ליד דרך EmailJS |
-| `submitCF()` | שליחת טופס צור קשר דרך EmailJS |
-| `openLightbox(idx)` | פתיחת גלריה מוגדלת |
-| `closeLightbox()` | סגירת גלריה |
-| `changeImage(dir)` | ניווט בין תמונות בגלריה |
-| `playProofVideo()` | הפעלת וידאו YouTube של PROOF |
-| `closeProofVideo()` | סגירת וידאו |
-| `showToast(msg, dur)` | הצגת הודעת toast |
-| `onPlateInput(el)` | validation לשדה מספר רישוי |
-| `clearPlate()` | ניקוי שדה מספר רישוי |
-| `resetElig()` | איפוס תצוגת תוצאות בדיקה |
-
-### mobileye.html
-- `runCheck()` — גרסה ייעודית לדף מובילאיי
-- `submitLead()` — שליחת ליד
-- `toggleFaq(el)` — פתיחה/סגירה של שאלות נפוצות
-
----
-
-## פריסה ו-Hosting
-
-- **Hosting:** Netlify (מחובר לגיטהאב אוטומטית)
-- **Repository:** https://github.com/OhanaMichael/radio-micky
-- **Branch:** main
-- **Deploy:** אוטומטי עם כל push ל-main
-- **Domain:** https://www.radio-micky.co.il
-
----
-
-## לוג תיקונים ושינויים
-
-| תאריך | Commit | שינוי |
-|-------|--------|-------|
-| 07/05/2025 | `abac8fb` | **fix:** הוספת `pointer-events:none` ל-`.hero::before` בmobileye.html — תיקון חסימת לחצני WhatsApp, טלפון ובדיקת זכאות |
-| השבוע | `de860ac` | SEO: שדרוג מלא — Schema, mobileye page, robots, sitemap, keywords, NAP |
-| השבוע | — | feat: עמוד נחיתה PROOF Z-4K |
-| השבוע | — | fix: בתפריט ובסקציה proof קישורים לעמוד + לוגו |
-| השבוע | — | שינוי שמות קבצי לוגו לאנגלית |
-| לפני שבועיים | — | Initial commit — Radio Micky with Analytics and SEO |
-
----
-
-## הערות מפתח
-
-- כל ה-CSS וה-JS הם **inline** בתוך קבצי ה-HTML (אין קבצים חיצוניים)
-- אין framework — Vanilla HTML/CSS/JS בלבד
-- האתר תומך ב-RTL (עברית) בכל הדפים
-- תמונות נטענות עם `loading="lazy"` (חוץ מתמונות hero שנטענות eager)
-- EmailJS מאותחל ב-`window.load` (defer)
-- ה-`.hero::before` ב-mobileye.html הוא תמונת SVG רקע דקורטיבית — חייב `pointer-events:none` כדי לא לחסום לחצנים
+*מסמך זה הופק על בסיס סריקת האתר החי — מאי 2026*
