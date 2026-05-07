@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage -->
   <url>
     <loc>https://www.radio-micky.co.il/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- מובילאיי -->
   <url>
-    <loc>https://www.radio-micky.co.il/mobileye.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.radio-micky.co.il/mobileye</loc>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- PROOF Z-4K -->
   <url>
-    <loc>https://www.radio-micky.co.il/proof.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.radio-micky.co.il/proof</loc>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -35,50 +35,154 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutoPartsStore",
-    "name": "רדיו מיקי טבריה",
-    "alternateName": "Radio Micky Tiberias",
-    "description": "מרכז התקנות מקצועי לאביזרי רכב יוקרה בטבריה. מתקין מורשה מובילאיי ממשרד התחבורה. מצלמות PROOF, מיגון סקיילוק ו-COBRA, מולטימדיה Nippon, מערכות Alpine. שירות לצפון הארץ מאז 1996.",
-    "url": "https://www.radio-micky.co.il",
-    "telephone": "+97246717333",
-    "email": "micky.ohana@gmail.com",
-    "foundingDate": "1996",
-    "image": "https://www.radio-micky.co.il/images/IMG_0261.jpeg",
-    "logo": "https://www.radio-micky.co.il/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "שוק העירוני, רחוב 407",
-      "addressLocality": "טבריה",
-      "addressRegion": "צפון",
-      "postalCode": "1410101",
-      "addressCountry": "IL"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 32.7940,
-      "longitude": 35.5310
-    },
-    "hasMap": "https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94",
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
-      "opens": "09:00",
-      "closes": "13:00"
-    }],
-    "priceRange": "₪₪",
-    "areaServed": ["טבריה","גליל","צפון ישראל","נצרת","צפת","עפולה","קצרין","כנרת"],
-    "knowsAbout": ["מובילאיי","אביזרי רכב","מצלמות דרך","מיגון רכב","מולטימדיה לרכב","PROOF","Skylock","COBRA","Nippon","Alpine"],
-    "sameAs": [
-      "https://www.facebook.com/Radio.Micky.Tiberias10/",
-      "https://www.instagram.com/radio.micky.tiberias/"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "bestRating": "5",
-      "worstRating": "1",
-      "reviewCount": "47"
-    }
+    "@graph": [
+      {
+        "@type": ["AutoRepair", "LocalBusiness"],
+        "@id": "https://www.radio-micky.co.il/#business",
+        "name": "רדיו מיקי טבריה",
+        "alternateName": "Radio Micky Tiberias",
+        "description": "מרכז התקנות מקצועי לאביזרי רכב יוקרה בטבריה. מתקין מורשה מובילאיי ממשרד התחבורה. מצלמות PROOF, מיגון סקיילוק ו-COBRA, מולטימדיה Nippon, מערכות Alpine. שירות לצפון הארץ מאז 1996.",
+        "url": "https://www.radio-micky.co.il",
+        "telephone": "+97246717333",
+        "email": "micky.ohana@gmail.com",
+        "foundingDate": "1996",
+        "image": "https://www.radio-micky.co.il/images/IMG_0261.jpeg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.radio-micky.co.il/logo.png"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "שוק העירוני, רחוב 407",
+          "addressLocality": "טבריה",
+          "addressRegion": "צפון",
+          "postalCode": "1410101",
+          "addressCountry": "IL"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7940,
+          "longitude": 35.5310
+        },
+        "hasMap": "https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          }
+        ],
+        "priceRange": "₪₪",
+        "areaServed": [
+          {"@type": "City", "name": "טבריה"},
+          {"@type": "City", "name": "נצרת"},
+          {"@type": "City", "name": "צפת"},
+          {"@type": "City", "name": "עפולה"},
+          {"@type": "City", "name": "קצרין"},
+          {"@type": "AdministrativeArea", "name": "הגליל"}
+        ],
+        "knowsAbout": ["מובילאיי","אביזרי רכב","מצלמות דרך","מיגון רכב","מולטימדיה לרכב","PROOF","Skylock","COBRA","Nippon","Alpine"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "שירותי אביזרי רכב",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "התקנת מובילאיי — מתקין מורשה",
+                "description": "התקנת מערכת מובילאיי עם החזר 1,500 ₪ ממשרד התחבורה לפי נוהל 151.",
+                "url": "https://www.radio-micky.co.il/mobileye"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "מצלמות דרך PROOF Z-4K",
+                "description": "מצלמת 4K עם סים מובנה וצפייה בזמן אמת.",
+                "url": "https://www.radio-micky.co.il/proof"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "מיגון ואיתור רכב — סקיילוק ו-COBRA",
+                "description": "מערכות מיגון ואיתור GPS לרכב פרטי ומסחרי."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "מולטימדיה לרכב — Nippon ו-Alpine",
+                "description": "התקנת מסכי מגע, Apple CarPlay, Android Auto ורמקולים."
+              }
+            }
+          ]
+        },
+        "sameAs": [
+          "https://www.facebook.com/Radio.Micky.Tiberias10/",
+          "https://www.instagram.com/radio.micky.tiberias/"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "bestRating": "5",
+          "worstRating": "1",
+          "reviewCount": "47"
+        },
+        "inLanguage": "he"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.radio-micky.co.il/#website",
+        "url": "https://www.radio-micky.co.il/",
+        "name": "רדיו מיקי טבריה",
+        "inLanguage": "he",
+        "publisher": {"@id": "https://www.radio-micky.co.il/#business"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.radio-micky.co.il/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "האם אני זכאי להחזר 1,500 ₪ ממשרד התחבורה על מובילאיי?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "רכבים שעלו לכביש בין 1/1/2000 ל-30/4/2017 זכאים להחזר של 1,500 ₪ בגין התקנת מערכת מובילאיי, בכפוף לתקנה 151 של משרד התחבורה."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "מה ההבדל בין מיגון סקיילוק ל-COBRA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "סקיילוק מציע חסימת הנעה, איתור GPS ותמיכה 24/7. COBRA מערכת מיגון ואזעקה חכמה עם התראות SMS. רדיו מיקי מורשה להתקין את שניהם."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "כמה עולה מולטימדיה לרכב בטבריה?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "מחיר תלוי בדגם הרכב. רדיו מיקי מציע Nippon ו-Alpine כולל התקנה, Apple CarPlay ומצלמת רוורס. צרו קשר לקבלת הצעת מחיר."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם מצלמת PROOF Z-4K מתאימה לצי רכבים?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "כן. מצלמת PROOF Z-4K עם סים מובנה מאפשרת צפייה בזמן אמת מכל מקום — אידיאלי לניהול צי רכבים עם התראות מיידיות."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
  
@@ -404,7 +508,7 @@
   <header id="hero" role="banner">
     <div class="hero">
       <p class="hero-badge">✓ מתקין מורשה משרד התחבורה מאז 1996</p>
-      <h1>אביזרי רכב <span class="gold">יוקרה</span><br>בטבריה ובכל הצפון</h1>
+      <h1><span class="gold">מובילאיי</span> ואביזרי רכב יוקרה<br>בטבריה ובכל הצפון</h1>
       <p class="hero-sub">מיקי אוחנה — מרכז התקנות מקצועי לאביזרי רכב, מיגון, מובילאיי ומולטימדיה. שירות מקצועי, ציוד מקורי, מחירים הוגנים.</p>
       <div class="hero-acts">
         <a href="https://wa.me/97246717333" class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="שלחו הודעה ב-WhatsApp">💬 שלחו הודעה ב-WhatsApp</a>
@@ -620,39 +724,39 @@
       <p class="sec-sub">חלק מההתקנות שביצענו ללקוחות מרוצים בצפון הארץ</p>
       <div class="gallery-grid" role="list">
         <div class="gallery-item" onclick="openLightbox(0)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(0)" role="button" aria-label="הגדל תמונה: מולטימדיה + Waze">
-          <img src="images/IMG_0261.jpeg" alt="התקנת מולטימדיה עם ניווט Waze" loading="eager" width="400" height="300">
+          <img src="images/IMG_0261.jpeg" alt="התקנת מולטימדיה עם ניווט Waze ברכב פרטי — רדיו מיקי טבריה" loading="eager" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">מולטימדיה + Waze</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(1)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(1)" role="button" aria-label="הגדל תמונה: מסך Android חכם">
-          <img src="images/IMG_6155.jpeg" alt="מסך Android חכם ברכב פרטי" loading="eager" width="400" height="300">
+          <img src="images/IMG_6155.jpeg" alt="מסך Android חכם מותקן ברכב פרטי — רדיו מיקי" loading="eager" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">מסך Android חכם</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(2)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(2)" role="button" aria-label="הגדל תמונה: ניווט Waze מובנה">
-          <img src="images/IMG_6159.jpeg" alt="ניווט Waze מובנה במסך מולטימדיה" loading="lazy" width="400" height="300">
+          <img src="images/IMG_6159.jpeg" alt="ניווט Waze מובנה במסך מולטימדיה — התקנה מקצועית טבריה" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">ניווט Waze מובנה</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(3)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(3)" role="button" aria-label="הגדל תמונה: ניסאן ג'וק — מולטימדיה">
-          <img src="images/IMG_6371.jpeg" alt="התקנת מולטימדיה בניסאן ג'וק" loading="lazy" width="400" height="300">
+          <img src="images/IMG_6371.jpeg" alt="התקנת מולטימדיה Alpine בניסאן ג'וק — רדיו מיקי טבריה" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">ניסאן ג'וק — מולטימדיה</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(4)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(4)" role="button" aria-label="הגדל תמונה: מסך חכם — קיה">
-          <img src="images/IMG_6495.jpeg" alt="מסך חכם מותקן ברכב קיה" loading="lazy" width="400" height="300">
+          <img src="images/IMG_6495.jpeg" alt="מסך מולטימדיה חכם מותקן ברכב קיה — אביזרי רכב טבריה" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">מסך חכם — קיה</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(5)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(5)" role="button" aria-label="הגדל תמונה: אפליקציות מובנות">
-          <img src="images/IMG_6496.jpeg" alt="אפליקציות מובנות במסך הרכב" loading="lazy" width="400" height="300">
+          <img src="images/IMG_6496.jpeg" alt="אפליקציות מובנות במסך מולטימדיה לרכב — רדיו מיקי" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">אפליקציות מובנות</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(6)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(6)" role="button" aria-label="הגדל תמונה: Apple CarPlay">
-          <img src="images/IMG_6509.jpeg" alt="התקנת Apple CarPlay ברכב לקוח" loading="lazy" width="400" height="300">
+          <img src="images/IMG_6509.jpeg" alt="התקנת Apple CarPlay ברכב לקוח — רדיו מיקי טבריה" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Apple CarPlay</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(7)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(7)" role="button" aria-label="הגדל תמונה: מיצובישי — מולטימדיה">
-          <img src="images/IMG_9016.jpeg" alt="מולטימדיה מותקנת במיצובישי" loading="lazy" width="400" height="300">
+          <img src="images/IMG_9016.jpeg" alt="מולטימדיה Nippon מותקנת במיצובישי — רדיו מיקי אביזרי רכב" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">מיצובישי — מולטימדיה</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox(8)" tabindex="0" onkeydown="if(event.key==='Enter')openLightbox(8)" role="button" aria-label="הגדל תמונה: פורד מונדאו — רדיו חדש">
-          <img src="images/IMG_9753.jpeg" alt="מערכת רדיו חדשה בפורד מונדאו" loading="lazy" width="400" height="300">
+          <img src="images/IMG_9753.jpeg" alt="מערכת רדיו ומולטימדיה חדשה בפורד מונדאו — טבריה" loading="lazy" width="400" height="300">
           <div class="gallery-item-overlay"><span class="gallery-item-label">פורד מונדאו — רדיו חדש</span></div>
         </div>
       </div>
@@ -727,6 +831,17 @@
               <tr><td>שישי</td><td>סגור</td></tr>
               <tr><td>שבת</td><td>סגור</td></tr>
             </table>
+
+          <!-- Google Maps -->
+          <div style="margin-top:1rem;border-radius:10px;overflow:hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3394.0!2d35.5285!3d32.7946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c1f3b0b3d1d1d%3A0x0!2zטבריה, שוק העירוני!5e0!3m2!1siw!2sil!4v1715000000000"
+              width="100%" height="220" style="border:0;display:block;"
+              allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="מיקום רדיו מיקי טבריה — שוק העירוני">
+            </iframe>
+          </div>
           </div></div>
           <div class="ci"><span class="ci-ic" aria-hidden="true">🌐</span><div><h4>עקבו אחרינו</h4>
             <div class="social-row">
@@ -768,6 +883,30 @@
  
   </main>
  
+
+  <!-- FAQ Section -->
+  <section id="faq" aria-labelledby="faq-title" style="padding:3rem 1rem;background:#f7f7f7;">
+    <div style="max-width:780px;margin:0 auto;">
+      <h2 id="faq-title" style="text-align:center;margin-bottom:1.75rem;font-size:1.6rem;">שאלות נפוצות</h2>
+      <details style="background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.65rem;border:1px solid #e0e0e0;">
+        <summary style="font-weight:700;cursor:pointer;font-size:1rem;list-style:none;">האם אני זכאי להחזר 1,500 ₪ ממשרד התחבורה על מובילאיי?</summary>
+        <p style="margin:.75rem 0 0;color:#555;line-height:1.7;">רכבים שעלו לכביש בין 1/1/2000 ל-30/4/2017 זכאים להחזר של 1,500 ₪ בגין התקנת מערכת מובילאיי, בכפוף לתקנה 151 של משרד התחבורה. ניתן לבדוק זכאות ישירות על ידי הזנת מספר לוחית הרישוי בדף זה.</p>
+      </details>
+      <details style="background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.65rem;border:1px solid #e0e0e0;">
+        <summary style="font-weight:700;cursor:pointer;font-size:1rem;list-style:none;">מה ההבדל בין מיגון סקיילוק ל-COBRA?</summary>
+        <p style="margin:.75rem 0 0;color:#555;line-height:1.7;">סקיילוק (מבית רב בריח) מציע חסימת הנעה, איתור GPS מדויק ותמיכה 24/7 — מתאים לרכבים פרטיים ומסחריים. COBRA הוא פתרון מיגון עם אזעקה חכמה, חסימת הנעה אלקטרונית והתראות SMS. רדיו מיקי מורשה להתקין את שניהם.</p>
+      </details>
+      <details style="background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.65rem;border:1px solid #e0e0e0;">
+        <summary style="font-weight:700;cursor:pointer;font-size:1rem;list-style:none;">כמה עולה מולטימדיה לרכב בטבריה?</summary>
+        <p style="margin:.75rem 0 0;color:#555;line-height:1.7;">מחיר מערכת מולטימדיה תלוי בדגם הרכב וסוג המערכת הנבחרת. רדיו מיקי מציע מגוון מערכות Nippon ו-Alpine כולל התקנה מקצועית, Apple CarPlay, Android Auto ומצלמת רוורס. צרו קשר לקבלת הצעת מחיר מותאמת אישית.</p>
+      </details>
+      <details style="background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.65rem;border:1px solid #e0e0e0;">
+        <summary style="font-weight:700;cursor:pointer;font-size:1rem;list-style:none;">האם מצלמת PROOF Z-4K מתאימה לצי רכבים?</summary>
+        <p style="margin:.75rem 0 0;color:#555;line-height:1.7;">כן. מצלמת PROOF Z-4K עם סים סלולרי מובנה מאפשרת צפייה בזמן אמת מכל מקום בעולם — אידיאלי לניהול צי רכבים. כוללת התראה מיידית על פגיעה, פריצה ותאונה, ומצלמות קדמי ואחורי.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="foot-inner">
