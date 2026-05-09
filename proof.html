@@ -316,9 +316,9 @@
 
     .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:600;z-index:5000;opacity:0;transition:all .35s;white-space:nowrap;pointer-events:none;max-width:90vw;}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-    .wa-float{position:fixed;bottom:28px;left:28px;z-index:990;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 6px 24px rgba(37,211,102,.55);text-decoration:none;animation:floatPulse 3s ease-in-out infinite;}
+    .wa-float{position:fixed;bottom:28px;left:28px;z-index:990;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 6px 24px rgba(37,211,102,.55);text-decoration:none;animation:floatPulse 3s ease-in-out infinite;will-change:transform;}
     .wa-float:hover{transform:scale(1.12)!important;animation:none;}
-    @keyframes floatPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+    @keyframes floatPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.85;transform:scale(1.05);}}
   </style>
 </head>
 <body>
