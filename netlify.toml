@@ -68,3 +68,6 @@
                     to = "https://www.radio-micky.co.il/:splat"
                       status = 301
                         force = true
+
+[images]
+  remote_images = ["https://www.radio-micky.co.il/.*"]
