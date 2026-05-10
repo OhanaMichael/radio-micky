@@ -51,23 +51,7 @@
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"[[redirects]]
-  from = "http://radio-micky.co.il/*"
-    to = "https://www.radio-micky.co.il/:splat"
-      status = 301
-        force = true
-
-        [[redirects]]
-          from = "http://www.radio-micky.co.il/*"
-            to = "https://www.radio-micky.co.il/:splat"
-              status = 301
-                force = true
-
-                [[redirects]]
-                  from = "https://radio-micky.co.il/*"
-                    to = "https://www.radio-micky.co.il/:splat"
-                      status = 301
-                        force = true
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [images]
   remote_images = ["https://www.radio-micky.co.il/.*"]
