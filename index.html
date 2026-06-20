@@ -1118,6 +1118,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
     function onPlateInput(el) {
       el.value = el.value.replace(/[^0-9]/g, '');
       document.getElementById('clear-btn').style.display = el.value ? 'flex' : 'none';
+    resetElig();
     }
     function clearPlate() {
       document.getElementById('plate').value = '';
@@ -1139,26 +1140,25 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
  
     function runCheck() {
     var plate = document.getElementById('plate').value.replace(/[^0-9]/g,'');
+    resetElig();
+    var no = document.getElementById('elig-no');
     if (plate.length < 6 || plate.length > 8) {
-      resetElig();
-      var no0 = document.getElementById('elig-no');
-      no0.querySelector('h3').textContent = '⚠️ מספר רישוי לא תקין';
-      no0.querySelector('p').textContent = 'אנא הזן מספר בין 6 ל-8 ספרות.';
+      no.querySelector('h3').textContent = '⚠️ מספר רישוי לא תקין';
+      no.querySelector('p').textContent = 'אנא הזן מספר רישוי תקין (6 עד 8 ספרות).';
       document.getElementById('plate-no-txt').textContent = '';
-      no0.style.display = 'block';
+      no.style.display = 'block';
       return;
     }
-    resetElig();
     document.getElementById('elig-spin').style.display = 'block';
     document.getElementById('elig-btn').disabled = true;
-    function doneSpin(){ document.getElementById('elig-spin').style.display='none'; document.getElementById('elig-btn').disabled=false; }
 
-    fetch(API_URL + '?resource_id=' + RESOURCE + '&q=' + plate)
+    function urlFor(res){ return API_URL + '?resource_id=' + res + '&limit=1&filters=' + encodeURIComponent('{"mispar_rechev":' + Number(plate) + '}'); }
+    function hasExact(j){ return j && j.success && j.result && j.result.records && j.result.records.some(function(r){ return Number(r.mispar_rechev) === Number(plate); }); }
+
+    fetch(urlFor(RESOURCE))
       .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
-      .then(function(data){
-        var eligible = data.success && data.result && data.result.records && data.result.records.length > 0;
-        if (eligible) {
-          doneSpin();
+      .then(function(elig){
+        if (hasExact(elig)) {
           document.getElementById('plate-ok-txt').textContent = plate;
           document.getElementById('elig-ok').style.display = 'block';
           document.getElementById('lf-title').textContent = '🎉 מעולה! השאר פרטים לאישור ותיאום התקנה';
@@ -1167,38 +1167,37 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           document.getElementById('elig-ok').scrollIntoView({behavior:'smooth',block:'nearest'});
           return;
         }
-        return fetch(API_URL + '?resource_id=' + RESOURCE_REG + '&q=' + plate)
+        return fetch(urlFor(RESOURCE_REG))
           .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
           .then(function(reg){
-            doneSpin();
-            var exists = reg.success && reg.result && reg.result.records && reg.result.records.length > 0;
-            var no = document.getElementById('elig-no');
             document.getElementById('plate-no-txt').textContent = plate;
-            if (exists) {
+            if (hasExact(reg)) {
               no.querySelector('h3').textContent = '❌ הרכב אינו זכאי להחזר';
-              no.querySelector('p').textContent = 'מספר הרישוי ' + plate + ' רשום במאגר הרכבים אך אינו ברשימת הזכאים להחזר.';
+              no.querySelector('p').textContent = 'מספר הרישוי ' + plate + ' רשום במאגר הרכבים אך אינו ברשימת הזכאים להחזר 1,500 ₪.';
               document.getElementById('lf-title').textContent = '📞 רוצה לוודא? השאר פרטים ורדיו מיקי יבדוק ידנית';
               document.getElementById('lpl').value = plate;
               document.getElementById('lead-form').style.display = 'block';
             } else {
               no.querySelector('h3').textContent = '🚗 הרכב לא נמצא במאגר';
-              no.querySelector('p').textContent = 'מספר הרכב אינו רשום במאגר הרכבים. אנא ודאו שהוקלד מספר רישוי תקין ונסו שוב.';
+              no.querySelector('p').textContent = 'מספר הרכב ' + plate + ' אינו רשום במאגר הרכבים. אנא ודאו שהוקלד מספר רישוי תקין ונסו שוב.';
             }
             no.style.display = 'block';
             no.scrollIntoView({behavior:'smooth',block:'nearest'});
           });
       })
       .catch(function(err){
-        doneSpin();
-        var no = document.getElementById('elig-no');
+        document.getElementById('plate-no-txt').textContent = '';
         no.querySelector('h3').textContent = '⚠️ שגיאה בבדיקה';
         no.querySelector('p').textContent = 'לא ניתן לגשת למאגר כעת. השאר פרטים ורדיו מיקי יבדוק עבורך.';
-        document.getElementById('plate-no-txt').textContent = '';
         no.style.display = 'block';
         document.getElementById('lpl').value = plate;
         document.getElementById('lf-title').textContent = '📞 רדיו מיקי יבדוק עבורך ידנית — השאר פרטים';
         document.getElementById('lead-form').style.display = 'block';
         console.error('Elig API:', err);
+      })
+      .finally(function(){
+        document.getElementById('elig-spin').style.display = 'none';
+        document.getElementById('elig-btn').disabled = false;
       });
   }
     document.getElementById('plate').addEventListener('keydown', function(e) {
