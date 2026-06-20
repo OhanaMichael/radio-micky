@@ -878,7 +878,6 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
     if (plate.length < 6 || plate.length > 8) {
       no.querySelector('h3').textContent = '⚠️ מספר רישוי לא תקין';
       no.querySelector('p').textContent = 'אנא הזן מספר רישוי תקין (6 עד 8 ספרות).';
-      document.getElementById('plate-no-txt').textContent = '';
       no.style.display = 'block';
       return;
     }
@@ -903,7 +902,6 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
         return fetch(urlFor(RESOURCE_REG))
           .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
           .then(function(reg){
-            document.getElementById('plate-no-txt').textContent = plate;
             if (hasExact(reg)) {
               no.querySelector('h3').textContent = '❌ הרכב אינו זכאי להחזר';
               no.querySelector('p').textContent = 'מספר הרישוי ' + plate + ' רשום במאגר הרכבים אך אינו ברשימת הזכאים להחזר 1,500 ₪.';
@@ -919,7 +917,6 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           });
       })
       .catch(function(err){
-        document.getElementById('plate-no-txt').textContent = '';
         no.querySelector('h3').textContent = '⚠️ שגיאה בבדיקה';
         no.querySelector('p').textContent = 'לא ניתן לגשת למאגר כעת. השאר פרטים ורדיו מיקי יבדוק עבורך.';
         no.style.display = 'block';
