@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9S5CGRGCL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P9S5CGRGCL');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מולטימדיה תואם מקור בטבריה | Nippon, CarPlay — רדיו מיקי</title>
@@ -173,6 +176,16 @@ if(ddT&&dd){ddT.addEventListener('click',function(e){if(window.innerWidth>980){e
 var p=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
 document.querySelectorAll('.nav-dd a, .nav-mob-sub').forEach(function(a){var h=(a.getAttribute('href')||'').replace(/\.html$/,'').replace(/\/$/,'');if(h&&h===p){a.setAttribute('aria-current','page');}});
 var yr=document.getElementById('yr');if(yr)yr.textContent=new Date().getFullYear();
+}());
+</script>
+<script id="conv-track">
+(function(){
+function g(){if(typeof gtag==='function'){gtag.apply(null,arguments);}}
+document.addEventListener('click',function(e){
+var a=e.target.closest?e.target.closest('a'):null;if(!a)return;var href=a.getAttribute('href')||'';
+if(href.indexOf('wa.me')>-1||href.toLowerCase().indexOf('whatsapp')>-1){g('event','whatsapp_click',{link_location:location.pathname});}
+else if(href.indexOf('tel:')===0){g('event','phone_call_click',{link_location:location.pathname});}
+},true);
 }());
 </script>
 </body>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9S5CGRGCL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P9S5CGRGCL');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>התקנת מובילאיי בטבריה | מתקין מורשה — החזר 1,500 ₪</title>
@@ -789,6 +792,9 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
   var API_URL   = 'https://data.gov.il/api/3/action/datastore_search';
   var RESOURCE  = '83bfb278-7be1-4dab-ae2d-40125a923da1';
     var RESOURCE_REG = '053cea08-09bc-40ec-8f7a-156f0677aff3';
+    var SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbwPDf7gy28D4bsIQxxPNXNjExxPDGbdp6dicMErGfJCCa4Qdqpz0hR34CwgwZd6YGy0wQ/exec';
+    function trafficSource(){try{var p=new URLSearchParams(location.search);var u=p.get('utm_source');if(u){return u+(p.get('utm_medium')?(' / '+p.get('utm_medium')):'')+(p.get('utm_campaign')?(' / '+p.get('utm_campaign')):'');}var ref=document.referrer;if(!ref)return 'ישיר';var host=new URL(ref).hostname.replace(/^www\./,'');if(host.indexOf(location.hostname.replace(/^www\./,''))>-1)return 'ניווט באתר';if(/google\./.test(host))return 'גוגל (אורגני)';if(/facebook|fb\.|instagram/.test(host))return 'פייסבוק/אינסטגרם';if(/bing|yahoo|duckduckgo/.test(host))return 'מנוע חיפוש';return host;}catch(e){return 'לא ידוע';}}
+    function logCheck(plate, he, en){var src=trafficSource();if(typeof gtag==='function'){gtag('event','eligibility_check',{result:en, vehicle_status:he, traffic_source:src});}if(SHEET_LOG_URL){try{fetch(SHEET_LOG_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({plate:plate,result:he,source:src,page:location.pathname})});}catch(e){}}}
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -871,6 +877,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           document.getElementById('lpl').value = plate;
           document.getElementById('lead-form').style.display = 'block';
           document.getElementById('elig-ok').scrollIntoView({behavior:'smooth',block:'nearest'});
+          logCheck(plate,'זכאי','eligible');if(typeof gtag==='function'){gtag('event','eligibility_eligible',{value:1500,currency:'ILS'});}
           return;
         }
         return fetch(urlFor(RESOURCE_REG))
@@ -878,13 +885,13 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           .then(function(reg){
             if (hasExact(reg)) {
               no.querySelector('h3').textContent = '❌ הרכב אינו זכאי להחזר';
-              no.querySelector('p').textContent = 'מספר הרישוי ' + plate + ' רשום במאגר הרכבים אך אינו ברשימת הזכאים להחזר 1,500 ₪.';
+              no.querySelector('p').textContent = 'מספר הרישוי ' + plate + ' רשום במאגר הרכבים אך אינו ברשימת הזכאים להחזר 1,500 ₪.';logCheck(plate,'לא זכאי','not_eligible');
               document.getElementById('lf-title').textContent = '📞 רוצה לוודא? השאר פרטים ורדיו מיקי יבדוק ידנית';
               document.getElementById('lpl').value = plate;
               document.getElementById('lead-form').style.display = 'block';
             } else {
               no.querySelector('h3').textContent = '🚗 הרכב לא נמצא במאגר';
-              no.querySelector('p').textContent = 'מספר הרכב ' + plate + ' אינו רשום במאגר הרכבים. אנא ודאו שהוקלד מספר רישוי תקין ונסו שוב.';
+              no.querySelector('p').textContent = 'מספר הרכב ' + plate + ' אינו רשום במאגר הרכבים. אנא ודאו שהוקלד מספר רישוי תקין ונסו שוב.';logCheck(plate,'לא נמצא','not_found');
             }
             no.style.display = 'block';
             no.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -897,7 +904,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
         document.getElementById('lpl').value = plate;
         document.getElementById('lf-title').textContent = '📞 רדיו מיקי יבדוק עבורך ידנית — השאר פרטים';
         document.getElementById('lead-form').style.display = 'block';
-        console.error('Elig API:', err);
+        logCheck(plate,'שגיאה','error');console.error('Elig API:', err);
       })
       .finally(function(){
         document.getElementById('elig-spin').style.display = 'none';
@@ -923,7 +930,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
     }).then(function() {
       document.querySelector('.lead-grid').style.display = 'none';
       btn.style.display = 'none';
-      document.getElementById('lead-ok').style.display = 'block';
+      document.getElementById('lead-ok').style.display = 'block';if(typeof gtag==='function'){gtag('event','generate_lead',{form:'eligibility'});}
       showToast('✅ הפרטים נשלחו — מיקי יחזור אליך בהקדם!');
     }, function(err) {
       btn.disabled = false; btn.textContent = '📨 שלח ורדיו מיקי יחזור אליך';
@@ -952,6 +959,16 @@ if(ddT&&dd){ddT.addEventListener('click',function(e){if(window.innerWidth>980){e
 var p=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
 document.querySelectorAll('.nav-dd a, .nav-mob-sub').forEach(function(a){var h=(a.getAttribute('href')||'').replace(/\.html$/,'').replace(/\/$/,'');if(h&&h===p){a.setAttribute('aria-current','page');}});
 var yr=document.getElementById('yr');if(yr)yr.textContent=new Date().getFullYear();
+}());
+</script>
+<script id="conv-track">
+(function(){
+function g(){if(typeof gtag==='function'){gtag.apply(null,arguments);}}
+document.addEventListener('click',function(e){
+var a=e.target.closest?e.target.closest('a'):null;if(!a)return;var href=a.getAttribute('href')||'';
+if(href.indexOf('wa.me')>-1||href.toLowerCase().indexOf('whatsapp')>-1){g('event','whatsapp_click',{link_location:location.pathname});}
+else if(href.indexOf('tel:')===0){g('event','phone_call_click',{link_location:location.pathname});}
+},true);
 }());
 </script>
 </body>
