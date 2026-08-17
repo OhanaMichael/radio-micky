@@ -406,7 +406,7 @@
         "foundingDate": "1996",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "יהודה הלוי 407, השוק העירוני",
+          "streetAddress": "רחוב המטבעות, השוק העירוני",
           "addressLocality": "טבריה",
           "addressRegion": "מחוז הצפון",
           "addressCountry": "IL"

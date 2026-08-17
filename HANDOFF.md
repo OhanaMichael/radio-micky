@@ -14,7 +14,7 @@
 | אירוח | Netlify, auto-deploy מ-push |
 | תיקייה מקומית | `C:\Users\micky\OneDrive\מסמכים\עסקי\ניהול פרוייקטים\אתר אינטרנט רדיו מיקי\קבצי אתר` |
 | Google Analytics | `G-P9S5CGRGCL` |
-| טלפון | 04-6717333 · שוק העירוני, יהודה הלוי 407, טבריה · מאז 1996 |
+| טלפון | 04-6717333 · רחוב המטבעות, השוק העירוני, טבריה · מאז 1996 |
 
 **מבנה האתר:** `index.html` + דפי שירות נפרדים — `/mobileye`, `/mobileye-service`, `/multimedia`, `/kodanit`, `/cobra`, `/migun`, `/dalkan`, `/proof`.
 
