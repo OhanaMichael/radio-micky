@@ -157,7 +157,7 @@
       --gold:#f9a825;--gold-dark:#f57f17;--gold-light:#fff8e1;
       --mby:#003087;--mby-dark:#001f5e;--mby-light:#e8edf5;
       --green:#2e7d32;--green-light:#e8f5e9;--green-border:#66bb6a;
-      --text:#1a1a1a;--text-muted:#555;--text-light:#888;
+      --text:#1a1a1a;--text-muted:#555;--text-light:#6b6b6b;
       --bg:#fff;--bg-soft:#f7f7f7;--border:#e0e0e0;
       --shadow:0 2px 16px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.12);
       --radius:14px;--radius-sm:8px;
@@ -241,7 +241,7 @@
     .elig-ok{background:var(--green-light);color:var(--green);border-color:var(--green-border);}
     .elig-no{background:var(--red-light);color:var(--red-dark);border-color:#ef9a9a;}
     .lead-form{display:none;margin-top:20px;padding:20px;background:var(--mby-light);border-radius:var(--radius-sm);border:1.5px solid rgba(0,48,135,.2);}
-    .lead-form h4{font-size:16px;font-weight:700;color:var(--mby);margin-bottom:14px;}
+    .lead-form h3{font-size:16px;font-weight:700;color:var(--mby);margin-bottom:14px;}
     .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
     .lf{display:flex;flex-direction:column;gap:5px;}
     .lf.full{grid-column:1/-1;}
@@ -286,7 +286,7 @@
     .content-body ul li{font-size:15px;color:var(--text-muted);padding:5px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.65;}
     .content-body ul li::before{content:'◆';color:var(--mby);font-size:10px;margin-top:6px;flex-shrink:0;}
     .info-box{background:var(--mby-light);border-radius:var(--radius);padding:24px;border-right:4px solid var(--mby);}
-    .info-box h4{font-size:1rem;font-weight:700;color:var(--mby);margin-bottom:10px;}
+    .info-box h3{font-size:1rem;font-weight:700;color:var(--mby);margin-bottom:10px;}
     .info-box p,.info-box li{font-size:14px;color:var(--text-muted);line-height:1.75;}
     .info-box ul{list-style:none;padding:0;}
     .info-box ul li{padding:3px 0;display:flex;gap:8px;}
@@ -369,7 +369,7 @@
 .nav-mob-sub{padding-right:34px!important;font-size:15px!important;color:var(--text)!important;}
 footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(--gold);}
 .foot-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
-.foot-col h4{color:#f9a825;font-size:15px;margin-bottom:14px;font-weight:700;}
+.foot-col h3{color:#f9a825;font-size:15px;margin-bottom:14px;font-weight:700;}
 .foot-col>a{display:block;color:#bbb;font-size:14px;padding:5px 0;transition:color .2s;}
 .foot-col>a:hover{color:#fff;}
 .foot-about p{font-size:13.5px;color:#999;line-height:1.7;margin-bottom:9px;}
@@ -489,7 +489,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
       </div>
 
       <div class="lead-form" id="lead-form" aria-labelledby="lf-title">
-        <h4 id="lf-title">השאר פרטים ורדיו מיקי יחזור אליך!</h4>
+        <h3 id="lf-title">השאר פרטים ורדיו מיקי יחזור אליך!</h3>
         <div class="lead-grid">
           <div class="lf"><label for="ln">שם מלא *</label><input type="text" id="ln" placeholder="ישראל ישראלי" autocomplete="name"></div>
           <div class="lf"><label for="lp">טלפון *</label><input type="tel" id="lp" placeholder="050-000-0000" autocomplete="tel" dir="ltr"></div>
@@ -585,7 +585,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
       </div>
       <div>
         <div class="info-box" style="margin-bottom:20px;">
-          <h4>📍 פרטי הסדנה</h4>
+          <h3>📍 פרטי הסדנה</h3>
           <ul>
             <li>שוק העירוני, טבריה 1410101</li>
             <li>04-6717333</li>
@@ -594,7 +594,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           </ul>
         </div>
         <div class="info-box" style="margin-bottom:20px;">
-          <h4>✅ יתרונות ההתקנה אצל מיקי</h4>
+          <h3>✅ יתרונות ההתקנה אצל מיקי</h3>
           <ul>
             <li>מתקין מורשה רשמי של מובילאיי</li>
             <li>ניסיון של 30 שנה בהתקנות</li>
@@ -604,7 +604,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           </ul>
         </div>
         <div class="info-box">
-          <h4>❓ שאלות נפוצות — מהיר</h4>
+          <h3>❓ שאלות נפוצות — מהיר</h3>
           <ul>
             <li>כמה זמן? כ-30–60 דקות</li>
             <li>האם צריך הזמנה מראש? מומלץ</li>
@@ -744,7 +744,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
 <a class="foot-wa" href="https://wa.me/97246717333" target="_blank" rel="noopener noreferrer">&#128172; WhatsApp</a>
 </div>
 <div class="foot-col">
-<h4>השירותים של רדיו מיקי</h4>
+<h3>השירותים של רדיו מיקי</h3>
 <a href="/mobileye">מובילאיי — החזר 1,500&#8362;</a>
 <a href="/mobileye-service">שירות וחלפי מובילאיי</a>
 <a href="/multimedia">מולטימדיה תואם מקור</a>
@@ -755,7 +755,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
 <a href="/proof">מצלמת דרך PROOF Z-4K</a>
 </div>
 <div class="foot-col">
-<h4>ניווט מהיר</h4>
+<h3>ניווט מהיר</h3>
 <a href="/#about">אודות רדיו מיקי</a>
 <a href="/#services">כל השירותים</a>
 <a href="/#reviews">ביקורות לקוחות</a>

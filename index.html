@@ -237,7 +237,7 @@
       --gold:#f9a825;--gold-dark:#f57f17;--gold-light:#fff8e1;
       --mby:#003087;--mby-light:#e8edf5;
       --green:#2e7d32;--green-light:#e8f5e9;--green-border:#66bb6a;
-      --text:#1a1a1a;--text-muted:#555;--text-light:#888;
+      --text:#1a1a1a;--text-muted:#555;--text-light:#6b6b6b;
       --bg:#fff;--bg-soft:#f7f7f7;--border:#e0e0e0;
       --shadow:0 2px 16px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.12);
       --radius:14px;--radius-sm:8px;
@@ -344,7 +344,7 @@
     .elig-ok{background:var(--green-light);color:var(--green);border-color:var(--green-border);}
     .elig-no{background:var(--red-light);color:var(--red-dark);border-color:#ef9a9a;}
     .lead-form{display:none;margin-top:20px;padding:20px;background:var(--mby-light);border-radius:var(--radius-sm);border:1.5px solid rgba(0,48,135,.2);}
-    .lead-form h4{font-size:16px;font-weight:700;color:var(--mby);margin-bottom:14px;}
+    .lead-form h3{font-size:16px;font-weight:700;color:var(--mby);margin-bottom:14px;}
     .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
     .lf{display:flex;flex-direction:column;gap:5px;}
     .lf.full{grid-column:1/-1;}
@@ -462,7 +462,7 @@
     .ci-list{display:flex;flex-direction:column;gap:14px;}
     .ci{display:flex;align-items:flex-start;gap:14px;background:var(--bg-soft);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--border);}
     .ci-ic{font-size:1.4rem;flex-shrink:0;margin-top:2px;line-height:1;}
-    .ci h4{font-size:14px;font-weight:700;margin-bottom:3px;}
+    .ci h3{font-size:14px;font-weight:700;margin-bottom:3px;}
     .ci a,.ci p{font-size:14px;color:var(--text-muted);}
     .ci a:hover{color:var(--red);text-decoration:underline;}
     .hrs{width:100%;font-size:14px;border-collapse:collapse;}
@@ -539,7 +539,7 @@
 .nav-mob-sub{padding-right:34px!important;font-size:15px!important;color:var(--text)!important;}
 footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(--gold);}
 .foot-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
-.foot-col h4{color:#f9a825;font-size:15px;margin-bottom:14px;font-weight:700;}
+.foot-col h3{color:#f9a825;font-size:15px;margin-bottom:14px;font-weight:700;}
 .foot-col>a{display:block;color:#bbb;font-size:14px;padding:5px 0;transition:color .2s;}
 .foot-col>a:hover{color:#fff;}
 .foot-about p{font-size:13.5px;color:#999;line-height:1.7;margin-bottom:9px;}
@@ -677,7 +677,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
         </div>
  
         <div class="lead-form" id="lead-form" aria-labelledby="lf-title">
-          <h4 id="lf-title">השאר פרטים ורדיו מיקי יחזור אליך!</h4>
+          <h3 id="lf-title">השאר פרטים ורדיו מיקי יחזור אליך!</h3>
           <div class="lead-grid">
             <div class="lf"><label for="ln">שם מלא *</label><input type="text" id="ln" placeholder="ישראל ישראלי" autocomplete="name"></div>
             <div class="lf"><label for="lp">טלפון *</label><input type="tel" id="lp" placeholder="050-000-0000" autocomplete="tel" dir="ltr"></div>
@@ -936,10 +936,10 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
       <h2 id="contact-title" class="sec-title">מצאו אותנו וצרו קשר</h2>
       <div class="contact-grid">
         <div class="ci-list reveal">
-          <div class="ci"><span class="ci-ic" aria-hidden="true">📞</span><div><h4>טלפון</h4><a href="tel:046717333">04-6717333</a></div></div>
-          <div class="ci"><span class="ci-ic" aria-hidden="true">💬</span><div><h4>WhatsApp</h4><a href="https://wa.me/97246717333" target="_blank" rel="noopener noreferrer">04-6717333 — שלחו הודעה בכל שעה</a></div></div>
-          <div class="ci"><span class="ci-ic" aria-hidden="true">📍</span><div><h4>כתובת</h4><a href="https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94" target="_blank" rel="noopener noreferrer">שוק העירוני, טבריה — לחצו לניווט</a></div></div>
-          <div class="ci"><span class="ci-ic" aria-hidden="true">⏰</span><div><h4>שעות פתיחה</h4>
+          <div class="ci"><span class="ci-ic" aria-hidden="true">📞</span><div><h3>טלפון</h3><a href="tel:046717333">04-6717333</a></div></div>
+          <div class="ci"><span class="ci-ic" aria-hidden="true">💬</span><div><h3>WhatsApp</h3><a href="https://wa.me/97246717333" target="_blank" rel="noopener noreferrer">04-6717333 — שלחו הודעה בכל שעה</a></div></div>
+          <div class="ci"><span class="ci-ic" aria-hidden="true">📍</span><div><h3>כתובת</h3><a href="https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94" target="_blank" rel="noopener noreferrer">שוק העירוני, טבריה — לחצו לניווט</a></div></div>
+          <div class="ci"><span class="ci-ic" aria-hidden="true">⏰</span><div><h3>שעות פתיחה</h3>
             <table class="hrs" aria-label="שעות פתיחה">
               <tr><td>ראשון–חמישי</td><td>09:00–13:00</td></tr>
               <tr><td>שישי</td><td>סגור</td></tr>
@@ -957,7 +957,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
             </iframe>
           </div>
           </div></div>
-          <div class="ci"><span class="ci-ic" aria-hidden="true">🌐</span><div><h4>עקבו אחרינו</h4>
+          <div class="ci"><span class="ci-ic" aria-hidden="true">🌐</span><div><h3>עקבו אחרינו</h3>
             <div class="social-row">
               <a href="https://www.facebook.com/Radio.Micky.Tiberias10/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="עמוד Facebook">f</a>
               <a href="https://www.instagram.com/radio.micky.tiberias/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="עמוד Instagram">📷</a>
@@ -1079,7 +1079,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
 <a class="foot-wa" href="https://wa.me/97246717333" target="_blank" rel="noopener noreferrer">&#128172; WhatsApp</a>
 </div>
 <div class="foot-col">
-<h4>השירותים של רדיו מיקי</h4>
+<h3>השירותים של רדיו מיקי</h3>
 <a href="/mobileye">מובילאיי — החזר 1,500&#8362;</a>
 <a href="/mobileye-service">שירות וחלפי מובילאיי</a>
 <a href="/multimedia">מולטימדיה תואם מקור</a>
@@ -1090,7 +1090,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
 <a href="/proof">מצלמת דרך PROOF Z-4K</a>
 </div>
 <div class="foot-col">
-<h4>ניווט מהיר</h4>
+<h3>ניווט מהיר</h3>
 <a href="/#about">אודות רדיו מיקי</a>
 <a href="/#services">כל השירותים</a>
 <a href="/#reviews">ביקורות לקוחות</a>
