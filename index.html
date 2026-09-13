@@ -69,8 +69,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 32.794,
-        "longitude": 35.531
+        "latitude": 32.7855028,
+        "longitude": 35.5418261
       },
       "hasMap": "https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94",
       "openingHoursSpecification": [
@@ -532,7 +532,13 @@
     .reveal{opacity:1;transform:translateY(0);transition:opacity .7s ease,transform .7s ease;}
     .reveal.animate{opacity:0;transform:translateY(28px);}
     .reveal.animate.visible{opacity:1;transform:translateY(0);}
-  </style>
+  
+.map-wrap{margin-top:32px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);aspect-ratio:16/7;}
+.map-wrap iframe{width:100%;height:100%;display:block;}
+.map-note{margin-top:12px;text-align:center;font-size:14px;color:var(--text-muted);}
+.map-note a{color:var(--red);font-weight:700;}
+@media(max-width:760px){.map-wrap{aspect-ratio:4/3;margin-top:24px;}}
+</style>
 <style id="unified-ui">
 .nav{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e0e0e0!important;}
 .nav-logo{color:#c62828!important;}
@@ -974,16 +980,7 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
               <tr><td>שבת</td><td>סגור</td></tr>
             </table>
 
-          <!-- Google Maps -->
-          <div style="margin-top:1rem;border-radius:10px;overflow:hidden;">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423.87!2d35.5392565!3d32.7854983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c3e494c1400d3%3A0xd1bd3054ed476d4c!2z16jXk9eZ15Ug157Xmden15kgLSDXkNeR15nXlteo15kg16jXm9eR!5e0!3m2!1siw!2sil!4v1715000000000"
-              width="100%" height="220" style="border:0;display:block;"
-              allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="מיקום רדיו מיקי טבריה — שוק העירוני">
-            </iframe>
-          </div>
+          
           </div></div>
           <div class="ci"><span class="ci-ic" aria-hidden="true">🌐</span><div><h3>עקבו אחרינו</h3>
             <div class="social-row">
@@ -1020,6 +1017,17 @@ footer{background:#111;color:#bbb;padding:48px 20px 0;border-top:3px solid var(-
           <p class="cf-note">* שדות חובה. נציג יצור איתך קשר בהקדם.</p>
         </div>
       </div>
+      <!-- Google Maps -->
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6708.509584470084!2d35.54182605960369!3d32.78550278366142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c3e494c1400d3%3A0xd1bd3054ed476d4c!2z16jXk9eZ15Ug157Xmden15kgLSDXkNeR15nXlteo15kg16jXm9eRINeR15jXkdeo15nXlCDXnteV15zXmNeZ157Xk9eZ15Qg157XldeR15nXnNeQ15nXmQ!5e0!3m2!1siw!2sil!4v1789313566388!5m2!1siw!2sil"
+          title="מיקום רדיו מיקי טבריה — אביזרי רכב, מולטימדיה ומובילאיי, השוק העירוני"
+          style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p class="map-note">&#128205; רדיו מיקי טבריה &middot; רחוב המטבעות, השוק העירוני, טבריה &middot;
+        <a href="https://waze.com/ul?q=%D7%A8%D7%93%D7%99%D7%95%20%D7%9E%D7%99%D7%A7%D7%99%20%D7%98%D7%91%D7%A8%D7%99%D7%94" target="_blank" rel="noopener noreferrer">ניווט ב-Waze</a></p>
+
     </div>
   </section>
  
